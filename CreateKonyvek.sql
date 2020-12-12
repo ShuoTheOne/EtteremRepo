@@ -11,6 +11,6 @@ create table konyvek
     constraint pk_konyvek primary key(konyv_id),
     constraint uq_konyvek_raktari_szam unique(raktari_szam),
     constraint fk_kiadok foreign key(kiado_id)
-        references gyartok(id)
+        references kiadok(id)
 );
     

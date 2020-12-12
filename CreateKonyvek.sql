@@ -1,7 +1,7 @@
 drop table konyvek;
 create table konyvek
 (
-    konyv_id char(6) not null,
+    konyv_id char(6) not null AUTO_INCREMENT,
     raktari_szam char(9) not null,
     kiado_id int not null,
     cim varchar2(100) not null,
@@ -13,4 +13,3 @@ create table konyvek
     constraint fk_kiadok foreign key(kiado_id)
         references kiadok(id)
 );
-    

@@ -21,7 +21,7 @@ begin
     v_check_konyv_id := sf_check_konyv_id(p_konyv_id);
     if v_check_konyv_id = 1 then
         insert into konyvek
-            (konyv_id, raktari_szam, kiado_id, mufaj, cim, kiadas_eve,)
+            (konyv_id, raktari_szam, kiado_id, mufaj, cim, kiadas_eve)
         values
             (p_kiado_id, p_raktari_szam, v_kiado_id, p_mufaj, p_cim, p_kiadas_eve);
         p_out_rowcnt := SQL%rowcount;

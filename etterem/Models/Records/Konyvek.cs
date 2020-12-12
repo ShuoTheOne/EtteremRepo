@@ -8,5 +8,6 @@ namespace etterem.Models.Records
 {
     class Konyvek
     {
+
     }
 }

@@ -16,13 +16,13 @@ begin
         v_i := 1;
         while v_i <= 2 loop
             v_raktari_szam_char := substr(p_raktari_szam, v_i, 2);
-            if not (ascii('A') <= ascii(v_rendszam_char) and ascii(v_raktari_szam_char) <= ascii('Z')) then
+            if not (ascii('A') <= ascii(v_raktari_szam_char) and ascii(v_raktari_szam_char) <= ascii('Z')) then
                 return 0;            
             end if;
             v_i := v_i + 1;
         end loop;
 
-        while v_i <= 8 loop
+        while v_i <= 10 loop
             v_raktari_szam_char := substr(p_raktari_szam, v_i, 1);
             if not (ascii('0') <= ascii(v_raktari_szam_char) and ascii(v_raktari_szam_char) <= ascii('9')) then
                 return 0;            

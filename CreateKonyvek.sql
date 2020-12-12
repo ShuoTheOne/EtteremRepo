@@ -1,8 +1,8 @@
 drop table konyvek;
 create table konyvek
 (
-    konyv_id char(6) not null,
-    raktari_szam char(9) not null,
+    konyv_id char(4) not null,
+    raktari_szam char(10) not null,
     kiado_id int not null,
     cim varchar2(100) not null,
     mufaj varchar2(60) not null,

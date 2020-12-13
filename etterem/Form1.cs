@@ -19,12 +19,19 @@ namespace etterem
         List<Konyvek> records_KonyvekList;
         BackgroundWorker bgWorker;
 
+        KiadokTabla kiadoManager;
+        List<Kiadok> records_KiadokList;
+        BackgroundWorker bgWorker2;
+
         public Form1()
         {
             InitializeComponent();
             konyvManager = new KonyvekTabla();
             records_KonyvekList = new List<Konyvek>();
             bgWorker = new BackgroundWorker();
+
+            InitializeDataGridView();
+            InitializeDataGridView2();
         }
 
         private void btn_Torles_Click(object sender, EventArgs e)
@@ -69,6 +76,7 @@ namespace etterem
         private void Form1_Load(object sender, EventArgs e)
         {
             bgWorker.WorkerSupportsCancellation = true;
+            bgWorker2.WorkerSupportsCancellation = true;
 
             dt_Kiadas_eve.CustomFormat = "yyyy";
             dt_Kiadas_eve.ShowUpDown = true;
@@ -80,6 +88,7 @@ namespace etterem
         private void Form1_Show(object sender, EventArgs e)
         {
             bgWorker.RunWorkerAsync();
+            bgWorker2.RunWorkerAsync();
         }
 
         private void InitializeDataGridView()
@@ -199,6 +208,99 @@ namespace etterem
             string actual = tb_Raktari_szam.Text;
             bool Correct = konyvManager.CheckRaktari_szam(actual);
             tb_Raktari_szam.BackColor = Correct ? Color.White : Color.Yellow;
+        }
+
+        private void btn_Kiado_Beszuras_Click(object sender, EventArgs e)
+        {
+            Kiadok kiado = new Kiadok()
+            {
+                Id = tb_Kiado_Id.Text,
+                Nev = tb_Kiado_Nev.Text,
+            };
+            kiadoManager.Insert(kiado);
+            bgWorker2.RunWorkerAsync();
+
+            MessageBox.Show("Sikeres kiadó hozzáadás!");
+            tb_Kiado_Id.Clear();
+            tb_Kiado_Nev.Clear();
+        }
+
+        private void btn_Kiado_Torles_Click(object sender, EventArgs e)
+        {
+            int ToroltSorok = 0;
+            foreach (DataGridViewRow selectedRows in dgv_Kiadok.SelectedRows)
+            {
+                Kiadok TorlendoRekord = new Kiadok();
+                TorlendoRekord.Id = selectedRows.Cells["id"].Value.ToString();
+
+                ToroltSorok += kiadoManager.Delete(TorlendoRekord);
+            }
+
+            MessageBox.Show(string.Format("{0} sor lett törölve", ToroltSorok));
+            if (ToroltSorok != 0)
+            {
+                bgWorker.RunWorkerAsync();
+            }
+        }
+
+        private void InitializeDataGridView2()
+        {
+            dgv_Kiadok.Rows.Clear();
+            dgv_Kiadok.Columns.Clear();
+
+            DataGridViewColumn IdColumn = new DataGridViewColumn()
+            {
+                Name = "id",
+                HeaderText = "Kiadó ID",
+                Visible = true,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
+
+            };
+            dgv_Konyvek.Columns.Add(IdColumn);
+
+            DataGridViewColumn NevColumn = new DataGridViewColumn()
+            {
+                Name = "nev",
+                HeaderText = "Név",
+                Visible = true,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
+
+            };
+            dgv_Konyvek.Columns.Add(NevColumn);
+        }
+
+        private void BgWorker_RunWorkerComplete2(object sender, RunWorkerCompletedEventArgs e)
+        {
+            FillDataGridView2();
+        }
+
+
+        private void BgWorker_DoWork2(object sender, DoWorkEventArgs e)
+        {
+            records_KiadokList = kiadoManager.Select();
+        }
+
+        private void FillDataGridView2()
+        {
+            DataGridViewRow[] dataGridViewRows = new DataGridViewRow[records_KiadokList.Count];
+
+            for (int i = 0; i < records_KiadokList.Count; i++)
+            {
+                DataGridViewRow dataGridViewRow = new DataGridViewRow();
+
+                DataGridViewCell IdCell = new DataGridViewTextBoxCell();
+                IdCell.Value = records_KiadokList[i].Id;
+                dataGridViewRow.Cells.Add(IdCell);
+
+                DataGridViewCell NevCell = new DataGridViewTextBoxCell();
+                NevCell.Value = records_KiadokList[i].Nev;
+                dataGridViewRow.Cells.Add(NevCell);
+
+
+                dataGridViewRows[i] = dataGridViewRow;
+            }
+            dgv_Konyvek.Rows.Clear();
+            dgv_Konyvek.Rows.AddRange(dataGridViewRows);
         }
     }
 }

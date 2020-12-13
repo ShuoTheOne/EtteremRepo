@@ -1,0 +1,12 @@
+D:\EKE\3. felev\adatbazis2\EtteremRepo\etterem\bin\Debug\etterem.exe.config
+D:\EKE\3. felev\adatbazis2\EtteremRepo\etterem\bin\Debug\etterem.exe
+D:\EKE\3. felev\adatbazis2\EtteremRepo\etterem\bin\Debug\etterem.pdb
+D:\EKE\3. felev\adatbazis2\EtteremRepo\etterem\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\EKE\3. felev\adatbazis2\EtteremRepo\etterem\obj\Debug\etterem.csprojAssemblyReference.cache
+D:\EKE\3. felev\adatbazis2\EtteremRepo\etterem\obj\Debug\etterem.Form1.resources
+D:\EKE\3. felev\adatbazis2\EtteremRepo\etterem\obj\Debug\etterem.Properties.Resources.resources
+D:\EKE\3. felev\adatbazis2\EtteremRepo\etterem\obj\Debug\etterem.csproj.GenerateResource.cache
+D:\EKE\3. felev\adatbazis2\EtteremRepo\etterem\obj\Debug\etterem.csproj.CoreCompileInputs.cache
+D:\EKE\3. felev\adatbazis2\EtteremRepo\etterem\obj\Debug\etterem.csproj.CopyComplete
+D:\EKE\3. felev\adatbazis2\EtteremRepo\etterem\obj\Debug\etterem.exe
+D:\EKE\3. felev\adatbazis2\EtteremRepo\etterem\obj\Debug\etterem.pdb

@@ -27,7 +27,178 @@ namespace etterem
             bgWorker = new BackgroundWorker();
         }
 
+        private void btn_Torles_Click(object sender, EventArgs e)
+        {
+            int ToroltSorok = 0;
+            foreach (DataGridViewRow selectedRows in dgv_Konyvek.SelectedRows)
+            {
+                Konyvek TorlendoRekord = new Konyvek();
+                TorlendoRekord.Konyv_id = selectedRows.Cells["konyv_id"].Value.ToString();
+
+                ToroltSorok += konyvManager.Delete(TorlendoRekord);
+            }
+
+            MessageBox.Show(string.Format("{0} sor lett törölve", ToroltSorok));
+            if (ToroltSorok != 0)
+            {
+                bgWorker.RunWorkerAsync();
+            }
+        }
+
+        private void btn_Beszuras_Click(object sender, EventArgs e)
+        {
+            Konyvek konyv = new Konyvek()
+            {
+                Konyv_id = tb_Konyv_id.Text,
+                Raktari_szam = tb_Raktari_szam.Text,
+                Kiado = tb_Kiado.Text,
+                Cim = tb_Cim.Text,
+                Mufaj = cb_Mufaj.SelectedItem.ToString(),
+                Kiadas_eve = dt_Kiadas_eve.Value,
+            };
+            konyvManager.Insert(konyv);
+            bgWorker.RunWorkerAsync();
+
+            MessageBox.Show("Sikeres könyv hozzáadás!");
+            tb_Konyv_id.Clear();
+            tb_Raktari_szam.Clear();
+            tb_Kiado.Clear();
+            tb_Cim.Clear();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            bgWorker.WorkerSupportsCancellation = true;
+
+            dt_Kiadas_eve.CustomFormat = "yyyy";
+            dt_Kiadas_eve.ShowUpDown = true;
+            cb_Mufaj.DataSource = Enum.GetValues(typeof(Mufaj));
+
+            InitializeDataGridView();
+
+        }
+        private void Form1_Show(object sender, EventArgs e)
+        {
+            bgWorker.RunWorkerAsync();
+        }
+
+        private void InitializeDataGridView()
+        {
+            dgv_Konyvek.Rows.Clear();
+            dgv_Konyvek.Columns.Clear();
+
+            DataGridViewColumn Konyv_idColumn = new DataGridViewColumn()
+            {
+                Name = "konyv_id",
+                HeaderText = "Könyv ID",
+                Visible = true,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
+
+            };
+            dgv_Konyvek.Columns.Add(Konyv_idColumn);
+
+            DataGridViewColumn KiadoColumn = new DataGridViewColumn()
+            {
+                Name = "kiado",
+                HeaderText = "Kiadó",
+                Visible = true,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
+
+            };
+            dgv_Konyvek.Columns.Add(KiadoColumn);
+
+            DataGridViewColumn CimColumn = new DataGridViewColumn()
+            {
+                Name = "cim",
+                HeaderText = "Cím",
+                Visible = true,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells
+            };
+            dgv_Konyvek.Columns.Add(CimColumn);
+
+            DataGridViewColumn MufajColumn = new DataGridViewColumn()
+            {
+                Name = "mufaj",
+                HeaderText = "Műfaj",
+                Visible = true,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
+
+            };
+            dgv_Konyvek.Columns.Add(MufajColumn);
+
+            DataGridViewColumn Kiadas_eveColumn = new DataGridViewColumn()
+            {
+                Name = "kiadas_eve",
+                HeaderText = "Kiadás Éve",
+                Visible = true,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
+
+            };
+            dgv_Konyvek.Columns.Add(Kiadas_eveColumn);
+        }
+
+        private void BgWorker_RunWorkerComplete(object sender, RunWorkerCompletedEventArgs e)
+        {
+            FillDataGridView();
+        }
 
 
+        private void BgWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            records_KonyvekList = konyvManager.Select();
+        }
+
+        private void FillDataGridView()
+        {
+            DataGridViewRow[] dataGridViewRows = new DataGridViewRow[records_KonyvekList.Count];
+
+            for (int i = 0; i < records_KonyvekList.Count; i++)
+            {
+                DataGridViewRow dataGridViewRow = new DataGridViewRow();
+
+                DataGridViewCell Konyv_idCell = new DataGridViewTextBoxCell();
+                Konyv_idCell.Value = records_KonyvekList[i].Konyv_id;
+                dataGridViewRow.Cells.Add(Konyv_idCell);
+
+                DataGridViewCell Raktari_szamCell = new DataGridViewTextBoxCell();
+                Raktari_szamCell.Value = records_KonyvekList[i].Raktari_szam;
+                dataGridViewRow.Cells.Add(Raktari_szamCell);
+
+                DataGridViewCell KiadoCell = new DataGridViewTextBoxCell();
+                KiadoCell.Value = records_KonyvekList[i].Kiado;
+                dataGridViewRow.Cells.Add(KiadoCell);
+
+                DataGridViewCell CimCell = new DataGridViewTextBoxCell();
+                CimCell.Value = records_KonyvekList[i].Cim;
+                dataGridViewRow.Cells.Add(CimCell);
+
+                DataGridViewCell MufajCell = new DataGridViewTextBoxCell();
+                MufajCell.Value = records_KonyvekList[i].Mufaj;
+                dataGridViewRow.Cells.Add(MufajCell);
+
+                DataGridViewCell Kiadas_eveCell = new DataGridViewTextBoxCell();
+                Kiadas_eveCell.Value = records_KonyvekList[i].Kiadas_eve;
+                dataGridViewRow.Cells.Add(Kiadas_eveCell);
+
+
+                dataGridViewRows[i] = dataGridViewRow;
+            }
+            dgv_Konyvek.Rows.Clear();
+            dgv_Konyvek.Rows.AddRange(dataGridViewRows);
+        }
+
+        private void tb_Konyv_id_Leave(object sender, EventArgs e)
+        {
+            string actual = tb_Konyv_id.Text;
+            bool Correct = konyvManager.CheckKonyv_id(actual);
+            tb_Konyv_id.BackColor = Correct ? Color.White : Color.Yellow;
+        }
+
+        private void tb_Raktari_szam_Leave(object sender, EventArgs e)
+        {
+            string actual = tb_Raktari_szam.Text;
+            bool Correct = konyvManager.CheckRaktari_szam(actual);
+            tb_Raktari_szam.BackColor = Correct ? Color.White : Color.Yellow;
+        }
     }
 }

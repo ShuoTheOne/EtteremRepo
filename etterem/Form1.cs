@@ -30,6 +30,11 @@ namespace etterem
             records_KonyvekList = new List<Konyvek>();
             bgWorker = new BackgroundWorker();
 
+            kiadoManager = new KiadokTabla();
+            records_KiadokList = new List<Kiadok>();
+            bgWorker2 = new BackgroundWorker();
+
+
             InitializeDataGridView();
             InitializeDataGridView2();
         }
@@ -256,7 +261,7 @@ namespace etterem
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
 
             };
-            dgv_Konyvek.Columns.Add(IdColumn);
+            dgv_Kiadok.Columns.Add(IdColumn);
 
             DataGridViewColumn NevColumn = new DataGridViewColumn()
             {
@@ -266,7 +271,7 @@ namespace etterem
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
 
             };
-            dgv_Konyvek.Columns.Add(NevColumn);
+            dgv_Kiadok.Columns.Add(NevColumn);
         }
 
         private void BgWorker_RunWorkerComplete2(object sender, RunWorkerCompletedEventArgs e)
@@ -299,8 +304,15 @@ namespace etterem
 
                 dataGridViewRows[i] = dataGridViewRow;
             }
-            dgv_Konyvek.Rows.Clear();
-            dgv_Konyvek.Rows.AddRange(dataGridViewRows);
+            dgv_Kiadok.Rows.Clear();
+            dgv_Kiadok.Rows.AddRange(dataGridViewRows);
+        }
+
+        private void tb_Kiado_Id_Leave(object sender, EventArgs e)
+        {
+            string actual = tb_Kiado_Id.Text;
+            bool Correct = kiadoManager.CheckKiado_id(actual);
+            tb_Kiado_Id.BackColor = Correct ? Color.White : Color.Yellow;
         }
     }
 }

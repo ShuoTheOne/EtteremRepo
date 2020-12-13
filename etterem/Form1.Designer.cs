@@ -205,6 +205,7 @@
             this.tb_Kiado_Id.Name = "tb_Kiado_Id";
             this.tb_Kiado_Id.Size = new System.Drawing.Size(100, 20);
             this.tb_Kiado_Id.TabIndex = 17;
+            this.tb_Kiado_Id.Leave += new System.EventHandler(this.tb_Kiado_Id_Leave);
             // 
             // tb_Kiado_Nev
             // 

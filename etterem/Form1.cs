@@ -287,7 +287,7 @@ namespace etterem
 
         private void FillDataGridView2()
         {
-            DataGridViewRow[] dataGridViewRows = new DataGridViewRow[records_KiadokList.Count];
+            DataGridViewRow[] dataGridViewRows2 = new DataGridViewRow[records_KiadokList.Count];
 
             for (int i = 0; i < records_KiadokList.Count; i++)
             {
@@ -302,10 +302,10 @@ namespace etterem
                 dataGridViewRow.Cells.Add(NevCell);
 
 
-                dataGridViewRows[i] = dataGridViewRow;
+                dataGridViewRows2[i] = dataGridViewRow;
             }
             dgv_Kiadok.Rows.Clear();
-            dgv_Kiadok.Rows.AddRange(dataGridViewRows);
+            dgv_Kiadok.Rows.AddRange(dataGridViewRows2);
         }
 
         private void tb_Kiado_Id_Leave(object sender, EventArgs e)

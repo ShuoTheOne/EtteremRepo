@@ -55,7 +55,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Manager\KiadokTabla.cs" />
     <Compile Include="Models\Manager\KonyvekTabla.cs" />
+    <Compile Include="Models\Records\Kiadok.cs" />
     <Compile Include="Models\Records\Konyvek.cs" />
     <Compile Include="Mufaj.cs" />
     <Compile Include="Program.cs" />

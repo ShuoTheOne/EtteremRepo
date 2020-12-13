@@ -29,7 +29,7 @@ namespace etterem.Models.Manager
             OracleCommand command = new OracleCommand()
             {
                 CommandType = System.Data.CommandType.Text,
-                CommandText = "SELECT ki.nev, ko.mufaj, ko.konyv_id FROM " +
+                CommandText = "SELECT ko.konyv_id, ko.raktari_szam, ki.nev, ko.mufaj, ko.cim, ko.kiadas_eve FROM " +
                 " konyvek ko INNER JOIN kiadok ki ON ki.id = ko.kiado_id"
             };
 
@@ -40,6 +40,8 @@ namespace etterem.Models.Manager
             {
                 Konyvek konyv = new Konyvek();
                 konyv.Konyv_id = reader["konyv_id"].ToString();
+                konyv.Raktari_szam = reader["raktari_szam"].ToString();
+                konyv.Cim = reader["cim"].ToString();
                 konyv.Mufaj = reader["mufaj"].ToString();
                 konyv.Kiado = reader["nev"].ToString();
 

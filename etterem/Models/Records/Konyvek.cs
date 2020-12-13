@@ -81,9 +81,9 @@ namespace etterem.Models.Records
             }
         }
 
-        private string mufaj;
+        private Enum mufaj;
 
-        public string Mufaj
+        public Enum Mufaj
         {
             get
             {

@@ -42,7 +42,7 @@ namespace etterem.Models.Manager
                 konyv.Konyv_id = reader["konyv_id"].ToString();
                 konyv.Raktari_szam = reader["raktari_szam"].ToString();
                 konyv.Cim = reader["cim"].ToString();
-                konyv.Mufaj = reader["mufaj"].ToString();
+                konyv.Mufaj = (Mufaj)reader["mufaj"];
                 konyv.Kiado = reader["nev"].ToString();
 
                 records.Add(konyv);

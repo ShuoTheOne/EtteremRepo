@@ -65,8 +65,8 @@ namespace etterem
                 Raktari_szam = tb_Raktari_szam.Text,
                 Kiado = tb_Kiado.Text,
                 Cim = tb_Cim.Text,
-                Mufaj = cb_Mufaj.SelectedItem.ToString(),
-                Kiadas_eve = dt_Kiadas_eve.Value,
+                Mufaj = (Mufaj)cb_Mufaj.SelectedItem,
+                Kiadas_eve = dt_Kiadas_eve.Value
             };
             konyvManager.Insert(konyv);
             bgWorker.RunWorkerAsync();
@@ -103,7 +103,8 @@ namespace etterem
 
             DataGridViewColumn Konyv_idColumn = new DataGridViewColumn()
             {
-                Name = "konyv_id",
+                CellTemplate = new DataGridViewTextBoxCell(),
+            Name = "konyv_id",
                 HeaderText = "Könyv ID",
                 Visible = true,
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
@@ -113,6 +114,7 @@ namespace etterem
 
             DataGridViewColumn KiadoColumn = new DataGridViewColumn()
             {
+                CellTemplate = new DataGridViewTextBoxCell(),
                 Name = "kiado",
                 HeaderText = "Kiadó",
                 Visible = true,
@@ -123,6 +125,7 @@ namespace etterem
 
             DataGridViewColumn CimColumn = new DataGridViewColumn()
             {
+                CellTemplate = new DataGridViewTextBoxCell(),
                 Name = "cim",
                 HeaderText = "Cím",
                 Visible = true,
@@ -132,6 +135,7 @@ namespace etterem
 
             DataGridViewColumn MufajColumn = new DataGridViewColumn()
             {
+                CellTemplate = new DataGridViewTextBoxCell(),
                 Name = "mufaj",
                 HeaderText = "Műfaj",
                 Visible = true,
@@ -142,6 +146,7 @@ namespace etterem
 
             DataGridViewColumn Kiadas_eveColumn = new DataGridViewColumn()
             {
+                CellTemplate = new DataGridViewTextBoxCell(),
                 Name = "kiadas_eve",
                 HeaderText = "Kiadás Éve",
                 Visible = true,
@@ -255,6 +260,7 @@ namespace etterem
 
             DataGridViewColumn IdColumn = new DataGridViewColumn()
             {
+                CellTemplate = new DataGridViewTextBoxCell(),
                 Name = "id",
                 HeaderText = "Kiadó ID",
                 Visible = true,
@@ -265,6 +271,7 @@ namespace etterem
 
             DataGridViewColumn NevColumn = new DataGridViewColumn()
             {
+                CellTemplate = new DataGridViewTextBoxCell(),
                 Name = "nev",
                 HeaderText = "Név",
                 Visible = true,

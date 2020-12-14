@@ -12,9 +12,9 @@ begin
         return 0;
     end if;
 
-    if length(trim(p_konyv_id)) = 6 then
+    if length(trim(p_konyv_id)) = 4 then
         v_i := 1;
-        while v_i <= 6 loop
+        while v_i <= 4 loop
             v_konyv_id_char := substr(p_konyv_id, v_i, 1);
             if not (ascii('1') <= ascii(v_konyv_id_char) and ascii(v_konyv_id_char) <= ascii('9')) then
                 return 0;            

@@ -78,7 +78,14 @@ namespace etterem
             tb_Cim.Clear();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+       
+        private void Form1_Show(object sender, EventArgs e)
+        {
+            bgWorker.RunWorkerAsync();
+            bgWorker2.RunWorkerAsync();
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
         {
             bgWorker.WorkerSupportsCancellation = true;
             bgWorker2.WorkerSupportsCancellation = true;
@@ -88,12 +95,6 @@ namespace etterem
             cb_Mufaj.DataSource = Enum.GetValues(typeof(Mufaj));
 
             InitializeDataGridView();
-
-        }
-        private void Form1_Show(object sender, EventArgs e)
-        {
-            bgWorker.RunWorkerAsync();
-            bgWorker2.RunWorkerAsync();
         }
 
         private void InitializeDataGridView()
@@ -209,8 +210,8 @@ namespace etterem
         private void tb_Konyv_id_Leave(object sender, EventArgs e)
         {
             string actual = tb_Konyv_id.Text;
-            bool Correct = konyvManager.CheckKonyv_id(actual);
-            tb_Konyv_id.BackColor = Correct ? Color.White : Color.Yellow;
+         //   bool Correct = konyvManager.CheckKonyv_id(actual);
+         //   tb_Konyv_id.BackColor = Correct ? Color.White : Color.Yellow;
         }
 
         private void tb_Raktari_szam_Leave(object sender, EventArgs e)
@@ -218,6 +219,13 @@ namespace etterem
             string actual = tb_Raktari_szam.Text;
             bool Correct = konyvManager.CheckRaktari_szam(actual);
             tb_Raktari_szam.BackColor = Correct ? Color.White : Color.Yellow;
+        }
+
+        private void tb_Kiado_Id_Leave(object sender, EventArgs e)
+        {
+            string actual = tb_Kiado_Id.Text;
+            //  bool Correct = kiadoManager.CheckKiado_id(actual);
+            //  tb_Kiado_Id.BackColor = Correct ? Color.White : Color.Yellow;
         }
 
         private void btn_Kiado_Beszuras_Click(object sender, EventArgs e)
@@ -313,13 +321,6 @@ namespace etterem
             }
             dgv_Kiadok.Rows.Clear();
             dgv_Kiadok.Rows.AddRange(dataGridViewRows2);
-        }
-
-        private void tb_Kiado_Id_Leave(object sender, EventArgs e)
-        {
-            string actual = tb_Kiado_Id.Text;
-            bool Correct = kiadoManager.CheckKiado_id(actual);
-            tb_Kiado_Id.BackColor = Correct ? Color.White : Color.Yellow;
-        }
+        }       
     }
 }

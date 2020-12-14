@@ -192,7 +192,7 @@ namespace etterem.Models.Manager
         }
 
 
-        public bool CheckKonyv_id(string konyv_id)
+        public bool CheckKonyv_id(int konyv_id)
         {
             OracleConnection oc = GetOracleConnection();
             oc.Open();
@@ -211,7 +211,7 @@ namespace etterem.Models.Manager
 
             OracleParameter Konyv_idParameter = new OracleParameter()
             {
-                DbType = System.Data.DbType.String,
+                DbType = System.Data.DbType.Int32,
                 ParameterName = "p_konyv_id",
                 Direction = System.Data.ParameterDirection.Input,
                 Value = konyv_id

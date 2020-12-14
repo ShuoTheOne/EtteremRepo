@@ -108,7 +108,7 @@ namespace etterem
             Name = "konyv_id",
                 HeaderText = "Könyv ID",
                 Visible = true,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
 
             };
             dgv_Konyvek.Columns.Add(Konyv_idColumn);
@@ -119,7 +119,7 @@ namespace etterem
                 Name = "kiado",
                 HeaderText = "Kiadó",
                 Visible = true,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
 
             };
             dgv_Konyvek.Columns.Add(KiadoColumn);
@@ -130,7 +130,7 @@ namespace etterem
                 Name = "cim",
                 HeaderText = "Cím",
                 Visible = true,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
             };
             dgv_Konyvek.Columns.Add(CimColumn);
 
@@ -140,7 +140,7 @@ namespace etterem
                 Name = "mufaj",
                 HeaderText = "Műfaj",
                 Visible = true,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
 
             };
             dgv_Konyvek.Columns.Add(MufajColumn);
@@ -151,7 +151,7 @@ namespace etterem
                 Name = "kiadas_eve",
                 HeaderText = "Kiadás Éve",
                 Visible = true,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
 
             };
             dgv_Konyvek.Columns.Add(Kiadas_eveColumn);
@@ -211,21 +211,21 @@ namespace etterem
         {
             string actual = tb_Konyv_id.Text;
             bool Correct = konyvManager.CheckKonyv_id(actual);
-           tb_Konyv_id.BackColor = Correct ? Color.White : Color.Yellow;
+           tb_Konyv_id.BackColor = Correct ? Color.Green : Color.Red;
         }
 
         private void tb_Raktari_szam_Leave(object sender, EventArgs e)
         {
             string actual = tb_Raktari_szam.Text;
             bool Correct = konyvManager.CheckRaktari_szam(actual);
-            tb_Raktari_szam.BackColor = Correct ? Color.White : Color.Yellow;
+            tb_Raktari_szam.BackColor = Correct ? Color.Green : Color.Red;
         }
 
         private void tb_Kiado_Id_Leave(object sender, EventArgs e)
         {
             string actual = tb_Kiado_Id.Text;
               bool Correct = kiadoManager.CheckKiado_id(actual);
-              tb_Kiado_Id.BackColor = Correct ? Color.White : Color.Yellow;
+              tb_Kiado_Id.BackColor = Correct ? Color.Green : Color.Red;
         }
 
         private void btn_Kiado_Beszuras_Click(object sender, EventArgs e)
@@ -272,7 +272,7 @@ namespace etterem
                 Name = "id",
                 HeaderText = "Kiadó ID",
                 Visible = true,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
 
             };
             dgv_Kiadok.Columns.Add(IdColumn);
@@ -283,7 +283,7 @@ namespace etterem
                 Name = "nev",
                 HeaderText = "Név",
                 Visible = true,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
 
             };
             dgv_Kiadok.Columns.Add(NevColumn);

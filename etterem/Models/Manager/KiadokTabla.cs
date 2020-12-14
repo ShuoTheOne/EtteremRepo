@@ -151,7 +151,7 @@ namespace etterem.Models.Manager
         }
 
 
-        public bool CheckKiado_id(int id)
+        public bool CheckKiado_id(string id)
         {
             OracleConnection oc = GetOracleConnection();
             oc.Open();
@@ -170,7 +170,7 @@ namespace etterem.Models.Manager
 
             OracleParameter IdParameter = new OracleParameter()
             {
-                DbType = System.Data.DbType.Int32,
+                DbType = System.Data.DbType.String,
                 ParameterName = "p_id",
                 Direction = System.Data.ParameterDirection.Input,
                 Value = id

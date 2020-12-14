@@ -56,6 +56,8 @@
             // 
             // dgv_Konyvek
             // 
+            this.dgv_Konyvek.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgv_Konyvek.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_Konyvek.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Konyvek.Location = new System.Drawing.Point(50, 12);
             this.dgv_Konyvek.Name = "dgv_Konyvek";
@@ -65,14 +67,18 @@
             // lblKonyv_id
             // 
             this.lblKonyv_id.AutoSize = true;
-            this.lblKonyv_id.Location = new System.Drawing.Point(50, 298);
+            this.lblKonyv_id.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKonyv_id.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblKonyv_id.Location = new System.Drawing.Point(38, 298);
             this.lblKonyv_id.Name = "lblKonyv_id";
-            this.lblKonyv_id.Size = new System.Drawing.Size(51, 13);
+            this.lblKonyv_id.Size = new System.Drawing.Size(59, 17);
             this.lblKonyv_id.TabIndex = 1;
             this.lblKonyv_id.Text = "Könyv ID";
             // 
             // btn_Torles
             // 
+            this.btn_Torles.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Torles.ForeColor = System.Drawing.Color.Navy;
             this.btn_Torles.Location = new System.Drawing.Point(511, 369);
             this.btn_Torles.Name = "btn_Torles";
             this.btn_Torles.Size = new System.Drawing.Size(144, 38);
@@ -83,6 +89,8 @@
             // 
             // btn_Beszuras
             // 
+            this.btn_Beszuras.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Beszuras.ForeColor = System.Drawing.Color.Navy;
             this.btn_Beszuras.Location = new System.Drawing.Point(348, 369);
             this.btn_Beszuras.Name = "btn_Beszuras";
             this.btn_Beszuras.Size = new System.Drawing.Size(146, 38);
@@ -94,45 +102,55 @@
             // lblRaktari_szam
             // 
             this.lblRaktari_szam.AutoSize = true;
-            this.lblRaktari_szam.Location = new System.Drawing.Point(50, 323);
+            this.lblRaktari_szam.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRaktari_szam.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblRaktari_szam.Location = new System.Drawing.Point(37, 323);
             this.lblRaktari_szam.Name = "lblRaktari_szam";
-            this.lblRaktari_szam.Size = new System.Drawing.Size(70, 13);
+            this.lblRaktari_szam.Size = new System.Drawing.Size(83, 17);
             this.lblRaktari_szam.TabIndex = 4;
             this.lblRaktari_szam.Text = "Raktári Szám";
             // 
             // lblKiado
             // 
             this.lblKiado.AutoSize = true;
-            this.lblKiado.Location = new System.Drawing.Point(50, 351);
+            this.lblKiado.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKiado.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblKiado.Location = new System.Drawing.Point(38, 351);
             this.lblKiado.Name = "lblKiado";
-            this.lblKiado.Size = new System.Drawing.Size(34, 13);
+            this.lblKiado.Size = new System.Drawing.Size(42, 17);
             this.lblKiado.TabIndex = 5;
             this.lblKiado.Text = "Kiadó";
             // 
             // lblCim
             // 
             this.lblCim.AutoSize = true;
-            this.lblCim.Location = new System.Drawing.Point(50, 382);
+            this.lblCim.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCim.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblCim.Location = new System.Drawing.Point(38, 379);
             this.lblCim.Name = "lblCim";
-            this.lblCim.Size = new System.Drawing.Size(26, 13);
+            this.lblCim.Size = new System.Drawing.Size(30, 17);
             this.lblCim.TabIndex = 6;
             this.lblCim.Text = "Cím";
             // 
             // lblKiadas_eve
             // 
             this.lblKiadas_eve.AutoSize = true;
-            this.lblKiadas_eve.Location = new System.Drawing.Point(356, 298);
+            this.lblKiadas_eve.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKiadas_eve.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblKiadas_eve.Location = new System.Drawing.Point(356, 295);
             this.lblKiadas_eve.Name = "lblKiadas_eve";
-            this.lblKiadas_eve.Size = new System.Drawing.Size(60, 13);
+            this.lblKiadas_eve.Size = new System.Drawing.Size(71, 17);
             this.lblKiadas_eve.TabIndex = 7;
             this.lblKiadas_eve.Text = "Kiadás éve";
             // 
             // lblMufaj
             // 
             this.lblMufaj.AutoSize = true;
-            this.lblMufaj.Location = new System.Drawing.Point(370, 328);
+            this.lblMufaj.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMufaj.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblMufaj.Location = new System.Drawing.Point(356, 324);
             this.lblMufaj.Name = "lblMufaj";
-            this.lblMufaj.Size = new System.Drawing.Size(33, 13);
+            this.lblMufaj.Size = new System.Drawing.Size(41, 17);
             this.lblMufaj.TabIndex = 8;
             this.lblMufaj.Text = "Műfaj";
             // 
@@ -184,49 +202,57 @@
             // lbl_Kiado_Id
             // 
             this.lbl_Kiado_Id.AutoSize = true;
-            this.lbl_Kiado_Id.Location = new System.Drawing.Point(814, 299);
+            this.lbl_Kiado_Id.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Kiado_Id.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbl_Kiado_Id.Location = new System.Drawing.Point(814, 298);
             this.lbl_Kiado_Id.Name = "lbl_Kiado_Id";
-            this.lbl_Kiado_Id.Size = new System.Drawing.Size(48, 13);
+            this.lbl_Kiado_Id.Size = new System.Drawing.Size(58, 17);
             this.lbl_Kiado_Id.TabIndex = 15;
             this.lbl_Kiado_Id.Text = "Kiadó ID";
             // 
             // lbl_Kiado_Nev
             // 
             this.lbl_Kiado_Nev.AutoSize = true;
+            this.lbl_Kiado_Nev.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Kiado_Nev.ForeColor = System.Drawing.SystemColors.Control;
             this.lbl_Kiado_Nev.Location = new System.Drawing.Point(814, 331);
             this.lbl_Kiado_Nev.Name = "lbl_Kiado_Nev";
-            this.lbl_Kiado_Nev.Size = new System.Drawing.Size(57, 13);
+            this.lbl_Kiado_Nev.Size = new System.Drawing.Size(69, 17);
             this.lbl_Kiado_Nev.TabIndex = 16;
             this.lbl_Kiado_Nev.Text = "Kiado Név";
             // 
             // tb_Kiado_Id
             // 
-            this.tb_Kiado_Id.Location = new System.Drawing.Point(911, 295);
+            this.tb_Kiado_Id.Location = new System.Drawing.Point(905, 295);
             this.tb_Kiado_Id.Name = "tb_Kiado_Id";
-            this.tb_Kiado_Id.Size = new System.Drawing.Size(100, 20);
+            this.tb_Kiado_Id.Size = new System.Drawing.Size(159, 20);
             this.tb_Kiado_Id.TabIndex = 17;
             this.tb_Kiado_Id.Leave += new System.EventHandler(this.tb_Kiado_Id_Leave);
             // 
             // tb_Kiado_Nev
             // 
-            this.tb_Kiado_Nev.Location = new System.Drawing.Point(911, 331);
+            this.tb_Kiado_Nev.Location = new System.Drawing.Point(905, 331);
             this.tb_Kiado_Nev.Name = "tb_Kiado_Nev";
-            this.tb_Kiado_Nev.Size = new System.Drawing.Size(100, 20);
+            this.tb_Kiado_Nev.Size = new System.Drawing.Size(159, 20);
             this.tb_Kiado_Nev.TabIndex = 18;
             // 
             // dgv_Kiadok
             // 
+            this.dgv_Kiadok.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgv_Kiadok.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_Kiadok.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Kiadok.Location = new System.Drawing.Point(751, 12);
+            this.dgv_Kiadok.Location = new System.Drawing.Point(767, 12);
             this.dgv_Kiadok.Name = "dgv_Kiadok";
             this.dgv_Kiadok.Size = new System.Drawing.Size(365, 261);
             this.dgv_Kiadok.TabIndex = 19;
             // 
             // btn_Kiado_Beszuras
             // 
-            this.btn_Kiado_Beszuras.Location = new System.Drawing.Point(817, 371);
+            this.btn_Kiado_Beszuras.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Kiado_Beszuras.ForeColor = System.Drawing.Color.Navy;
+            this.btn_Kiado_Beszuras.Location = new System.Drawing.Point(792, 369);
             this.btn_Kiado_Beszuras.Name = "btn_Kiado_Beszuras";
-            this.btn_Kiado_Beszuras.Size = new System.Drawing.Size(110, 36);
+            this.btn_Kiado_Beszuras.Size = new System.Drawing.Size(135, 38);
             this.btn_Kiado_Beszuras.TabIndex = 20;
             this.btn_Kiado_Beszuras.Text = "Kiadó Beszúrás";
             this.btn_Kiado_Beszuras.UseVisualStyleBackColor = true;
@@ -234,9 +260,11 @@
             // 
             // btn_Kiado_Torles
             // 
+            this.btn_Kiado_Torles.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Kiado_Torles.ForeColor = System.Drawing.Color.Navy;
             this.btn_Kiado_Torles.Location = new System.Drawing.Point(954, 370);
             this.btn_Kiado_Torles.Name = "btn_Kiado_Torles";
-            this.btn_Kiado_Torles.Size = new System.Drawing.Size(110, 36);
+            this.btn_Kiado_Torles.Size = new System.Drawing.Size(124, 36);
             this.btn_Kiado_Torles.TabIndex = 21;
             this.btn_Kiado_Torles.Text = "Kiadó Törlés";
             this.btn_Kiado_Torles.UseVisualStyleBackColor = true;
@@ -246,6 +274,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.RoyalBlue;
             this.ClientSize = new System.Drawing.Size(1159, 428);
             this.Controls.Add(this.btn_Kiado_Torles);
             this.Controls.Add(this.btn_Kiado_Beszuras);

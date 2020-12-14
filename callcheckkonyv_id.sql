@@ -1,7 +1,7 @@
 set serveroutput on;
 declare 
     v_call_konyv_id int;
-    v_konyv_id konyvek.konyv_id%type := '123456';
+    v_konyv_id konyvek.konyv_id%type := '1234';
 begin
 v_call_konyv_id := sf_check_konyv_id(v_konyv_id);
     IF v_call_konyv_id = 1 THEN

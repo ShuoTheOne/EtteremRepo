@@ -271,6 +271,7 @@
             this.Controls.Add(this.dgv_Konyvek);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Konyvek)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Kiadok)).EndInit();
             this.ResumeLayout(false);

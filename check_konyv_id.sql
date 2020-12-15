@@ -13,15 +13,9 @@ begin
     end if;
 
     if length(trim(p_konyv_id)) = 4 then
-        v_i := 1;
-        while v_i <= 4 loop
-            v_konyv_id_char := substr(p_konyv_id, v_i, 1);
-            if not (ascii('1') <= ascii(v_konyv_id_char) and ascii(v_konyv_id_char) <= ascii('9')) then
-                return 0;            
-            end if;
-            v_i := v_i + 1;
-        end loop;
-        return 1;
+       	if p_konyv_id >999 and p_konyv_id < 10000 then 
+        	return 1;
+        	end if;
     end if;
     return 0;
 end sf_check_konyv_id;

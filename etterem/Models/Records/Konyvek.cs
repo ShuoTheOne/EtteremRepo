@@ -3,6 +3,21 @@ namespace etterem.Models.Records
 {
     public class Konyvek
     {
+        public Konyvek()
+        {
+
+        }
+
+        public Konyvek(string konyv_id, string raktari_szam, string kiado, string cim, Mufaj Mufaj, DateTime kiadas_eve)
+        {
+            this.Konyv_id = konyv_id;
+            this.Raktari_szam = raktari_szam;
+            this.Kiado = kiado;
+            this.Cim = cim;
+            this.Mufaj = mufaj;
+            this.Kiadas_eve = kiadas_eve;
+        }
+
         private string konyv_id;
 
         public string Konyv_id

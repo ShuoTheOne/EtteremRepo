@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace etterem
 {
-    enum Mufaj
+    public enum Mufaj
     {
         FANTASY,
         KRIMI,

@@ -1,3 +1,4 @@
+create or replace function sf_callcheck_konyv_id
 set serveroutput on;
 declare 
     v_call_konyv_id int;

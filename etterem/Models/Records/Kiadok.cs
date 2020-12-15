@@ -3,6 +3,17 @@ namespace etterem.Models.Records
 {
     public class Kiadok
     {
+        public Kiadok()
+        {
+
+        }
+
+        public Kiadok(string id, string nev)
+        {
+            this.Id = id;
+            this.Nev = nev;
+        }
+
         private string id;
 
         public string Id

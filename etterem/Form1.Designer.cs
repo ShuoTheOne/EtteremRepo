@@ -1,4 +1,4 @@
-﻿namespace etterem
+﻿namespace konyvtar
 {
     partial class Form1
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgv_Konyvek = new System.Windows.Forms.DataGridView();
             this.lblKonyv_id = new System.Windows.Forms.Label();
             this.btn_Torles = new System.Windows.Forms.Button();
@@ -50,7 +50,6 @@
             this.btn_Kiado_Beszuras = new System.Windows.Forms.Button();
             this.btn_Kiado_Torles = new System.Windows.Forms.Button();
             this.bgworker1 = new System.ComponentModel.BackgroundWorker();
-            this.bgworker2 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Konyvek)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Kiadok)).BeginInit();
             this.SuspendLayout();
@@ -229,14 +228,14 @@
             this.dgv_Kiadok.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_Kiadok.BackgroundColor = System.Drawing.Color.Teal;
             this.dgv_Kiadok.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Kiadok.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Kiadok.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_Kiadok.Location = new System.Drawing.Point(767, 12);
             this.dgv_Kiadok.Name = "dgv_Kiadok";
             this.dgv_Kiadok.Size = new System.Drawing.Size(365, 261);
@@ -269,10 +268,6 @@
             // bgworker1
             // 
             this.bgworker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgworker1_DoWork_1);
-            // 
-            // bgworker2
-            // 
-            this.bgworker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgworker2_DoWork);
             // 
             // Form1
             // 
@@ -334,7 +329,6 @@
         private System.Windows.Forms.Button btn_Kiado_Beszuras;
         private System.Windows.Forms.Button btn_Kiado_Torles;
         private System.ComponentModel.BackgroundWorker bgworker1;
-        private System.ComponentModel.BackgroundWorker bgworker2;
     }
 }
 

@@ -17,41 +17,35 @@ namespace etterem
 
         KonyvekTabla konyvManager;
         List<Konyvek> records_KonyvekList;
-        BackgroundWorker bgWorker;
-
         KiadokTabla kiadoManager;
         List<Kiadok> records_KiadokList;
-        BackgroundWorker bgWorker2;
+        BackgroundWorker bgWorker;
 
         public Form1()
         {
             InitializeComponent();
             konyvManager = new KonyvekTabla();
             records_KonyvekList = new List<Konyvek>();
-            bgWorker = new BackgroundWorker();
-
             kiadoManager = new KiadokTabla();
             records_KiadokList = new List<Kiadok>();
-            bgWorker2 = new BackgroundWorker();
+            bgWorker = new BackgroundWorker();
 
 
             InitializeDataGridView();
             InitializeDataGridView2();
-            FillDataGridView();
-            FillDataGridView2();
         }
 
-        // WORKEREK
+        // WORKER
 
         private void bgworker1_DoWork_1(object sender, DoWorkEventArgs e)
         {
-            FillDataGridView();
             records_KonyvekList = konyvManager.Select();
+            records_KiadokList = kiadoManager.Select();          
         }
 
-        private void bgworker2_DoWork(object sender, DoWorkEventArgs e)
+        private void bgworker1_RunWorkerComplete(object sender, RunWorkerCompletedEventArgs e)
         {
-            records_KiadokList = kiadoManager.Select();
+            FillDataGridView();
             FillDataGridView2();
         }
 
@@ -85,7 +79,7 @@ namespace etterem
                 Nev = tb_Kiado_Nev.Text,
             };
             kiadoManager.Insert(kiado);
-            bgWorker2.RunWorkerAsync();
+            bgWorker.RunWorkerAsync();
 
             MessageBox.Show("Sikeres kiadó hozzáadás!");
             tb_Kiado_Nev.Clear();
@@ -135,14 +129,11 @@ namespace etterem
         private void Form1_Show(object sender, EventArgs e)
         {
             bgWorker.RunWorkerAsync();
-            bgWorker2.RunWorkerAsync();
         }
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
             bgWorker.WorkerSupportsCancellation = true;
-            bgWorker2.WorkerSupportsCancellation = true;
-
             dt_Kiadas_eve.CustomFormat = "yyyy";
             dt_Kiadas_eve.ShowUpDown = true;
             cb_Mufaj.DataSource = Enum.GetValues(typeof(Mufaj));

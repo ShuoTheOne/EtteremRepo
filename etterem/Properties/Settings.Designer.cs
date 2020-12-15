@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace etterem.Properties
+namespace konyvtar.Properties
 {
 
 

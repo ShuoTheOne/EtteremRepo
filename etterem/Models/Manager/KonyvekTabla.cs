@@ -29,7 +29,7 @@ namespace etterem.Models.Manager
             OracleCommand command = new OracleCommand()
             {
                 CommandType = System.Data.CommandType.Text,
-                CommandText = "SELECT b.id, b.raktari_szam, ki.nev, b.mufaj, b.cim, b.kiadas_eve FROM books b INNER JOIN kiadok ki ON ki.id = b.kiado_id"
+                CommandText = "SELECT books.id, books.raktari_szam, kiado.nev, books.mufaj, books.cim, books.kiadas_eve FROM books INNER JOIN kiadok ON kiadok.id = books.kiado_id"
             };
 
             command.Connection = oc;

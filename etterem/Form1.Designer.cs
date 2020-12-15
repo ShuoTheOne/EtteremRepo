@@ -59,6 +59,7 @@
             // 
             this.dgv_Konyvek.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgv_Konyvek.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.dgv_Konyvek.BackgroundColor = System.Drawing.Color.Teal;
             this.dgv_Konyvek.Location = new System.Drawing.Point(50, 12);
             this.dgv_Konyvek.Name = "dgv_Konyvek";
             this.dgv_Konyvek.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
@@ -70,11 +71,12 @@
             this.lblKonyv_id.AutoSize = true;
             this.lblKonyv_id.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKonyv_id.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblKonyv_id.Location = new System.Drawing.Point(38, 298);
+            this.lblKonyv_id.Location = new System.Drawing.Point(38, 279);
             this.lblKonyv_id.Name = "lblKonyv_id";
             this.lblKonyv_id.Size = new System.Drawing.Size(59, 17);
             this.lblKonyv_id.TabIndex = 1;
             this.lblKonyv_id.Text = "Könyv ID";
+            this.lblKonyv_id.Visible = false;
             // 
             // btn_Torles
             // 
@@ -105,7 +107,7 @@
             this.lblRaktari_szam.AutoSize = true;
             this.lblRaktari_szam.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRaktari_szam.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblRaktari_szam.Location = new System.Drawing.Point(37, 323);
+            this.lblRaktari_szam.Location = new System.Drawing.Point(37, 308);
             this.lblRaktari_szam.Name = "lblRaktari_szam";
             this.lblRaktari_szam.Size = new System.Drawing.Size(83, 17);
             this.lblRaktari_szam.TabIndex = 4;
@@ -116,7 +118,7 @@
             this.lblKiado.AutoSize = true;
             this.lblKiado.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKiado.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblKiado.Location = new System.Drawing.Point(38, 351);
+            this.lblKiado.Location = new System.Drawing.Point(38, 348);
             this.lblKiado.Name = "lblKiado";
             this.lblKiado.Size = new System.Drawing.Size(42, 17);
             this.lblKiado.TabIndex = 5;
@@ -157,15 +159,16 @@
             // 
             // tb_Konyv_id
             // 
-            this.tb_Konyv_id.Location = new System.Drawing.Point(126, 295);
+            this.tb_Konyv_id.Location = new System.Drawing.Point(126, 279);
             this.tb_Konyv_id.Name = "tb_Konyv_id";
             this.tb_Konyv_id.Size = new System.Drawing.Size(182, 20);
             this.tb_Konyv_id.TabIndex = 9;
+            this.tb_Konyv_id.Visible = false;
             this.tb_Konyv_id.Leave += new System.EventHandler(this.tb_Konyv_id_Leave);
             // 
             // tb_Raktari_szam
             // 
-            this.tb_Raktari_szam.Location = new System.Drawing.Point(126, 321);
+            this.tb_Raktari_szam.Location = new System.Drawing.Point(126, 308);
             this.tb_Raktari_szam.Name = "tb_Raktari_szam";
             this.tb_Raktari_szam.Size = new System.Drawing.Size(182, 20);
             this.tb_Raktari_szam.TabIndex = 10;
@@ -173,7 +176,7 @@
             // 
             // tb_Kiado
             // 
-            this.tb_Kiado.Location = new System.Drawing.Point(126, 348);
+            this.tb_Kiado.Location = new System.Drawing.Point(126, 345);
             this.tb_Kiado.Name = "tb_Kiado";
             this.tb_Kiado.Size = new System.Drawing.Size(182, 20);
             this.tb_Kiado.TabIndex = 11;
@@ -224,6 +227,7 @@
             // 
             this.dgv_Kiadok.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv_Kiadok.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgv_Kiadok.BackgroundColor = System.Drawing.Color.Teal;
             this.dgv_Kiadok.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -297,7 +301,8 @@
             this.Controls.Add(this.lblKonyv_id);
             this.Controls.Add(this.dgv_Konyvek);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Konyvtar";
             this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Konyvek)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Kiadok)).EndInit();

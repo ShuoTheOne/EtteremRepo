@@ -37,6 +37,8 @@ namespace etterem
 
             InitializeDataGridView();
             InitializeDataGridView2();
+            FillDataGridView();
+            FillDataGridView2();
         }
 
         // WORKEREK

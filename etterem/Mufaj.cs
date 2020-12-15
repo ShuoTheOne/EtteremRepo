@@ -8,12 +8,12 @@ namespace etterem
 {
     public enum Mufaj
     {
-        FANTASY,
-        KRIMI,
-        NOVELLA,
-        SCIFI, 
-        THRILLER,
-        KALAND,
-        AKCIO
+        Fantasy,
+        Krimi,
+        Novella,
+        Scifi, 
+        Thriller,
+        Kalandregény,
+        Akció
     }
 }

@@ -142,7 +142,7 @@ namespace etterem.Models.Manager
         }
 
 
-        public bool CheckKiado_id(string id)
+        public void CheckKiado_id(string id)
         {
             OracleConnection oc = GetOracleConnection();
             oc.Open();
@@ -172,7 +172,7 @@ namespace etterem.Models.Manager
             command.Connection = oc;
             
 
-            try
+         /*   try
             {
                 int successful = int.Parse(correct.Value.ToString());
 
@@ -182,7 +182,7 @@ namespace etterem.Models.Manager
             {
                 return false;
             }
-
+         */
 
         }
     }

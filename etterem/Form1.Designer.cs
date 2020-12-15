@@ -51,6 +51,8 @@
             this.dgv_Kiadok = new System.Windows.Forms.DataGridView();
             this.btn_Kiado_Beszuras = new System.Windows.Forms.Button();
             this.btn_Kiado_Torles = new System.Windows.Forms.Button();
+            this.bgworker1 = new System.ComponentModel.BackgroundWorker();
+            this.bgworker2 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Konyvek)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Kiadok)).BeginInit();
             this.SuspendLayout();
@@ -280,6 +282,14 @@
             this.btn_Kiado_Torles.UseVisualStyleBackColor = true;
             this.btn_Kiado_Torles.Click += new System.EventHandler(this.btn_Kiado_Torles_Click);
             // 
+            // bgworker1
+            // 
+            this.bgworker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgworker1_DoWork_1);
+            // 
+            // bgworker2
+            // 
+            this.bgworker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgworker2_DoWork);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -342,6 +352,8 @@
         private System.Windows.Forms.DataGridView dgv_Kiadok;
         private System.Windows.Forms.Button btn_Kiado_Beszuras;
         private System.Windows.Forms.Button btn_Kiado_Torles;
+        private System.ComponentModel.BackgroundWorker bgworker1;
+        private System.ComponentModel.BackgroundWorker bgworker2;
     }
 }
 

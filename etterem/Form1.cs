@@ -156,18 +156,6 @@ namespace etterem
             };
             dgv_Konyvek.Columns.Add(Kiadas_eveColumn);
         }
-
-        private void BgWorker_RunWorkerComplete(object sender, RunWorkerCompletedEventArgs e)
-        {
-            FillDataGridView();
-        }
-
-
-        private void BgWorker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            records_KonyvekList = konyvManager.Select();
-        }
-
         private void FillDataGridView()
         {
             DataGridViewRow[] dataGridViewRows = new DataGridViewRow[records_KonyvekList.Count];
@@ -210,22 +198,22 @@ namespace etterem
         private void tb_Konyv_id_Leave(object sender, EventArgs e)
         {
             string actual = tb_Konyv_id.Text;
-            bool Correct = konyvManager.CheckKonyv_id(actual);
-            tb_Konyv_id.BackColor = Correct ? Color.Green : Color.Red;
+             konyvManager.CheckKonyv_id(actual);
+        //    tb_Konyv_id.BackColor = Correct ? Color.Green : Color.Red;
         }
 
         private void tb_Raktari_szam_Leave(object sender, EventArgs e)
         {
             string actual = tb_Raktari_szam.Text;
-            bool Correct = konyvManager.CheckRaktari_szam(actual);
-            tb_Raktari_szam.BackColor = Correct ? Color.Green : Color.Red;
+            konyvManager.CheckRaktari_szam(actual);
+           // tb_Raktari_szam.BackColor = Correct ? Color.Green : Color.Red;
         }
 
         private void tb_Kiado_Id_Leave(object sender, EventArgs e)
         {
             string actual = tb_Kiado_Id.Text;
-            bool Correct = kiadoManager.CheckKiado_id(actual);
-            tb_Kiado_Id.BackColor = Correct ? Color.Green : Color.Red;
+            kiadoManager.CheckKiado_id(actual);
+         //   tb_Kiado_Id.BackColor = Correct ? Color.Green : Color.Red;
         }
 
         private void btn_Kiado_Beszuras_Click(object sender, EventArgs e)
@@ -288,18 +276,6 @@ namespace etterem
             };
             dgv_Kiadok.Columns.Add(NevColumn);
         }
-
-        private void BgWorker_RunWorkerComplete2(object sender, RunWorkerCompletedEventArgs e)
-        {
-            FillDataGridView2();
-        }
-
-
-        private void BgWorker_DoWork2(object sender, DoWorkEventArgs e)
-        {
-            records_KiadokList = kiadoManager.Select();
-        }
-
         private void FillDataGridView2()
         {
             DataGridViewRow[] dataGridViewRows2 = new DataGridViewRow[records_KiadokList.Count];
@@ -321,6 +297,18 @@ namespace etterem
             }
             dgv_Kiadok.Rows.Clear();
             dgv_Kiadok.Rows.AddRange(dataGridViewRows2);
-        }       
+        }
+
+        private void bgworker1_DoWork_1(object sender, DoWorkEventArgs e)
+        {
+            FillDataGridView();
+            records_KonyvekList = konyvManager.Select();
+        }
+
+        private void bgworker2_DoWork(object sender, DoWorkEventArgs e)
+        {
+            records_KiadokList = kiadoManager.Select();
+            FillDataGridView2();
+        }
     }
 }

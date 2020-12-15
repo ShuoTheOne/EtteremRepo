@@ -34,7 +34,7 @@ namespace etterem.Models.Records
                 }
                 if (value.Length != 4)
                 {
-                    throw new ArgumentOutOfRangeException("A köyvtári szám 4 karakter hosszú");
+                    throw new ArgumentOutOfRangeException("A könyvtári szám 4 karakter hosszú");
                 }
                 konyv_id = value;
             }

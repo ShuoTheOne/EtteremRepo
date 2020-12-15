@@ -185,7 +185,7 @@ namespace etterem.Models.Manager
         }
 
 
-        public bool CheckKonyv_id(string konyv_id)
+        public void CheckKonyv_id(string konyv_id)
         {
             OracleConnection oc = GetOracleConnection();
             oc.Open();
@@ -212,7 +212,7 @@ namespace etterem.Models.Manager
 
             command.Parameters.Add(Konyv_IdParameter);
             command.Connection = oc;
-            try
+        /*    try
             {
                 int successful = int.Parse(correct.Value.ToString());
 
@@ -222,11 +222,11 @@ namespace etterem.Models.Manager
             {
                 return false;
             }
-
+        */
 
         }
 
-        public bool CheckRaktari_szam(string raktari_szam)
+        public void CheckRaktari_szam(string raktari_szam)
         {
             OracleConnection oc = GetOracleConnection();
             oc.Open();
@@ -254,7 +254,7 @@ namespace etterem.Models.Manager
             command.Parameters.Add(Raktari_szamParameter);
 
             command.Connection = oc;
-
+/*
             try
             {
                 int successful = int.Parse(correct.Value.ToString());
@@ -265,7 +265,7 @@ namespace etterem.Models.Manager
             {
                 return false;
             }
-
+*/
 
         }
 

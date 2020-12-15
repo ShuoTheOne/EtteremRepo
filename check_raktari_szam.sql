@@ -1,6 +1,6 @@
 create or replace function sf_check_raktari_szam
 (
-    p_raktari_szam  in konyvek.raktari_szam%type
+    p_raktari_szam  in books.raktari_szam%type
 )
 return int
 deterministic

@@ -29,8 +29,8 @@ namespace etterem.Models.Manager
             OracleCommand command = new OracleCommand()
             {
                 CommandType = System.Data.CommandType.Text,
-                CommandText = "SELECT ko.konyv_id, ko.raktari_szam, ki.nev, ko.mufaj, ko.cim, ko.kiadas_eve FROM " +
-                " konyvek ko INNER JOIN kiadok ki ON ki.id = ko.kiado_id"
+                CommandText = "SELECT b.konyv_id, b.raktari_szam, ki.nev, b.mufaj, b.cim, b.kiadas_eve FROM " +
+                " books b INNER JOIN kiadok ki ON ki.id = b.kiado_id"
             };
 
             command.Connection = oc;
@@ -63,7 +63,7 @@ namespace etterem.Models.Manager
             OracleCommand command = new OracleCommand()
             {
                 CommandType = System.Data.CommandType.Text,
-                CommandText = "DELETE FROM konyvek WHERE konyv_id = :konyv_id"
+                CommandText = "DELETE FROM books WHERE konyv_id = :konyv_id"
             };
 
             OracleParameter Konyv_idParameter = new OracleParameter()
@@ -104,7 +104,7 @@ namespace etterem.Models.Manager
             OracleCommand command = new OracleCommand()
             {
                 CommandType = System.Data.CommandType.StoredProcedure,
-                CommandText = "spInsert_konyvek"
+                CommandText = "spInsert_books"
             };
 
             OracleParameter Konyv_idParameter = new OracleParameter()

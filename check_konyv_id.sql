@@ -1,6 +1,6 @@
 create or replace function sf_check_konyv_id
 (
-    p_konyv_id  in konyvek.konyv_id%type
+    p_konyv_id  in books.konyv_id%type
 )
 return int
 deterministic

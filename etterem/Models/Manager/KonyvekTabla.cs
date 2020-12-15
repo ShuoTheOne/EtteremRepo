@@ -107,14 +107,14 @@ namespace etterem.Models.Manager
                 CommandText = "spInsert_books"
             };
 
-            OracleParameter Konyv_idParameter = new OracleParameter()
+            OracleParameter p_KonyvId = new OracleParameter()
             {
                 DbType = System.Data.DbType.String,
                 ParameterName = "p_konyv_id",
                 Direction = System.Data.ParameterDirection.Input,
                 Value = record.Konyv_id
             };
-            command.Parameters.Add(Konyv_idParameter);
+            command.Parameters.Add(p_KonyvId);
 
             OracleParameter Raktari_szamParameter = new OracleParameter()
             {
@@ -196,7 +196,6 @@ namespace etterem.Models.Manager
         {
             OracleConnection oc = GetOracleConnection();
             oc.Open();
-
             OracleCommand command = new OracleCommand()
             {
                 CommandType = System.Data.CommandType.StoredProcedure,
@@ -209,7 +208,7 @@ namespace etterem.Models.Manager
                 Direction = System.Data.ParameterDirection.ReturnValue
             };
 
-            OracleParameter Konyv_idParameter = new OracleParameter()
+            OracleParameter p_KonyvId= new OracleParameter()
             {
                 DbType = System.Data.DbType.String,
                 ParameterName = "p_konyv_id",
@@ -217,10 +216,9 @@ namespace etterem.Models.Manager
                 Value = konyv_id
 
             };
-            command.Parameters.Add(Konyv_idParameter);
 
+            command.Parameters.Add(p_KonyvId);
             command.Connection = oc;
-
             try
             {
                 int successful = int.Parse(correct.Value.ToString());

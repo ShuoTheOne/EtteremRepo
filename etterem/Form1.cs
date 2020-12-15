@@ -166,6 +166,17 @@ namespace etterem
             };
             dgv_Konyvek.Columns.Add(Konyv_idColumn);
 
+            DataGridViewColumn Raktari_szamColumn = new DataGridViewColumn()
+            {
+                CellTemplate = new DataGridViewTextBoxCell(),
+                Name = "raktari_szam",
+                HeaderText = "Raktári Szám",
+                Visible = true,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+
+            };
+            dgv_Konyvek.Columns.Add(Raktari_szamColumn);
+
             DataGridViewColumn KiadoColumn = new DataGridViewColumn()
             {
                 CellTemplate = new DataGridViewTextBoxCell(),

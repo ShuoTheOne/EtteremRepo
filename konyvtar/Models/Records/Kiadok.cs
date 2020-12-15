@@ -1,5 +1,5 @@
 ﻿using System;
-namespace etterem.Models.Records
+namespace konyvtar.Models.Records
 {
     public class Kiadok
     {

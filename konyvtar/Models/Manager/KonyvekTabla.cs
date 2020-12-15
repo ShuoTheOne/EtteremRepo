@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using etterem.Models.Records;
+using konyvtar.Models.Records;
 
-namespace etterem.Models.Manager
+namespace konyvtar.Models.Manager
 {
     class KonyvekTabla
     {

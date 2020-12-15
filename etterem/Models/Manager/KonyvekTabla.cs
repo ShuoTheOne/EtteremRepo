@@ -94,7 +94,7 @@ namespace etterem.Models.Manager
         }
 
 
-        public int Insert(Konyvek record)
+        public void Insert(Konyvek record)
         {
             OracleConnection oc = GetOracleConnection();
             oc.Open();
@@ -107,14 +107,14 @@ namespace etterem.Models.Manager
                 CommandText = "spInsert_books"
             };
 
-            OracleParameter p_KonyvId = new OracleParameter()
+            OracleParameter Konyv_IdParameter = new OracleParameter()
             {
                 DbType = System.Data.DbType.String,
                 ParameterName = "p_konyv_id",
                 Direction = System.Data.ParameterDirection.Input,
                 Value = record.Konyv_id
             };
-            command.Parameters.Add(p_KonyvId);
+            command.Parameters.Add(Konyv_IdParameter);
 
             OracleParameter Raktari_szamParameter = new OracleParameter()
             {
@@ -154,7 +154,7 @@ namespace etterem.Models.Manager
 
             OracleParameter Kiadas_eveParameter = new OracleParameter()
             {
-                DbType = System.Data.DbType.String,
+                DbType = System.Data.DbType.DateTime,
                 ParameterName = "p_kiadas_eve",
                 Direction = System.Data.ParameterDirection.Input,
                 Value = record.Kiadas_eve
@@ -162,30 +162,23 @@ namespace etterem.Models.Manager
             command.Parameters.Add(Kiadas_eveParameter);
 
 
-
-            OracleParameter rowcountParameter = new OracleParameter()
-            {
-                DbType = System.Data.DbType.Int32,
-                ParameterName = "p_out_rowcnt",
-                Direction = System.Data.ParameterDirection.Output
-            };
-
             command.Connection = oc;
             command.Transaction = ot;
 
-            oc.Close();
+            
 
             try
             {
                 command.ExecuteNonQuery();
-                int affectedRows = int.Parse(rowcountParameter.Value.ToString());
                 ot.Commit();
-                return affectedRows;
             }
             catch (Exception)
             {
                 ot.Rollback();
-                return 0;
+            }
+            finally
+            {
+                oc.Close();
             }
 
 
@@ -208,7 +201,7 @@ namespace etterem.Models.Manager
                 Direction = System.Data.ParameterDirection.ReturnValue
             };
 
-            OracleParameter p_KonyvId= new OracleParameter()
+            OracleParameter Konyv_IdParameter= new OracleParameter()
             {
                 DbType = System.Data.DbType.String,
                 ParameterName = "p_konyv_id",
@@ -217,7 +210,7 @@ namespace etterem.Models.Manager
 
             };
 
-            command.Parameters.Add(p_KonyvId);
+            command.Parameters.Add(Konyv_IdParameter);
             command.Connection = oc;
             try
             {

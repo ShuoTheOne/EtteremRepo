@@ -90,7 +90,7 @@ namespace etterem.Models.Manager
         }
 
 
-        public int Insert(Kiadok record)
+        public void Insert(Kiadok record)
         {
             OracleConnection oc = GetOracleConnection();
             oc.Open();
@@ -121,30 +121,21 @@ namespace etterem.Models.Manager
             };
             command.Parameters.Add(NevParameter);
 
-
-            OracleParameter rowcountParameter = new OracleParameter()
-            {
-                DbType = System.Data.DbType.Int32,
-                ParameterName = "p_out_rowcnt",
-                Direction = System.Data.ParameterDirection.Output
-            };
-
             command.Connection = oc;
-            command.Transaction = ot;
-
-            oc.Close();
+            command.Transaction = ot;  
 
             try
             {
                 command.ExecuteNonQuery();
-                int affectedRows = int.Parse(rowcountParameter.Value.ToString());
                 ot.Commit();
-                return affectedRows;
             }
             catch (Exception)
             {
                 ot.Rollback();
-                return 0;
+            }
+            finally
+            {
+                oc.Close();
             }
 
 
@@ -179,6 +170,7 @@ namespace etterem.Models.Manager
             command.Parameters.Add(IdParameter);
 
             command.Connection = oc;
+            
 
             try
             {

@@ -29,7 +29,7 @@ namespace etterem.Models.Manager
             OracleCommand command = new OracleCommand()
             {
                 CommandType = System.Data.CommandType.Text,
-                CommandText = "SELECT b.konyv_id, b.raktari_szam, ki.nev, b.mufaj, b.cim, b.kiadas_eve FROM books b INNER JOIN kiadok ki ON ki.id = b.kiado_id"
+                CommandText = "SELECT b.id, b.raktari_szam, ki.nev, b.mufaj, b.cim, b.kiadas_eve FROM books b INNER JOIN kiadok ki ON ki.id = b.kiado_id"
             };
 
             command.Connection = oc;
@@ -38,7 +38,7 @@ namespace etterem.Models.Manager
             while (reader.Read())
             {
                 Konyvek konyv = new Konyvek();
-                konyv.Konyv_id = reader["konyv_id"].ToString();
+                konyv.Id = reader["id"].ToString();
                 konyv.Raktari_szam = reader["raktari_szam"].ToString();
                 konyv.Cim = reader["cim"].ToString();
                 konyv.Mufaj = (Mufaj)reader["mufaj"];
@@ -62,17 +62,17 @@ namespace etterem.Models.Manager
             OracleCommand command = new OracleCommand()
             {
                 CommandType = System.Data.CommandType.Text,
-                CommandText = "DELETE FROM books WHERE konyv_id = :konyv_id"
+                CommandText = "DELETE FROM books WHERE id = :id"
             };
 
-            OracleParameter Konyv_idParameter = new OracleParameter()
+            OracleParameter IdParameter = new OracleParameter()
             {
                 DbType = System.Data.DbType.String,
-                ParameterName = ":konyv_id",
+                ParameterName = ":id",
                 Direction = System.Data.ParameterDirection.Input,
-                Value = record.Konyv_id
+                Value = record.Id
             };
-            command.Parameters.Add(Konyv_idParameter);
+            command.Parameters.Add(IdParameter);
 
             command.Connection = oc;
             command.Transaction = ot;
@@ -106,14 +106,14 @@ namespace etterem.Models.Manager
                 CommandText = "spInsert_books"
             };
 
-            OracleParameter Konyv_IdParameter = new OracleParameter()
+            OracleParameter IdParameter = new OracleParameter()
             {
                 DbType = System.Data.DbType.String,
-                ParameterName = "p_konyv_id",
+                ParameterName = "p_id",
                 Direction = System.Data.ParameterDirection.Input,
-                Value = record.Konyv_id
+                Value = record.Id
             };
-            command.Parameters.Add(Konyv_IdParameter);
+            command.Parameters.Add(IdParameter);
 
             OracleParameter Raktari_szamParameter = new OracleParameter()
             {
@@ -184,7 +184,7 @@ namespace etterem.Models.Manager
         }
 
 
-        public void CheckKonyv_id(string konyv_id)
+        public void CheckKonyv_id(string id)
         {
             OracleConnection oc = GetOracleConnection();
             oc.Open();
@@ -200,16 +200,16 @@ namespace etterem.Models.Manager
                 Direction = System.Data.ParameterDirection.ReturnValue
             };
 
-            OracleParameter Konyv_IdParameter= new OracleParameter()
+            OracleParameter IdParameter= new OracleParameter()
             {
                 DbType = System.Data.DbType.String,
-                ParameterName = "p_konyv_id",
+                ParameterName = "p_id",
                 Direction = System.Data.ParameterDirection.Input,
-                Value = konyv_id
+                Value = id
 
             };
 
-            command.Parameters.Add(Konyv_IdParameter);
+            command.Parameters.Add(IdParameter);
             command.Connection = oc;
         /*    try
             {

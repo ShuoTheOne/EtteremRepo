@@ -8,9 +8,9 @@ namespace etterem.Models.Records
 
         }
 
-        public Konyvek(string konyv_id, string raktari_szam, string kiado, string cim, Mufaj Mufaj, DateTime kiadas_eve)
+        public Konyvek(string id, string raktari_szam, string kiado, string cim, Mufaj Mufaj, DateTime kiadas_eve)
         {
-            this.Konyv_id = konyv_id;
+            this.Id = id;
             this.Raktari_szam = raktari_szam;
             this.Kiado = kiado;
             this.Cim = cim;
@@ -18,13 +18,13 @@ namespace etterem.Models.Records
             this.Kiadas_eve = kiadas_eve;
         }
 
-        private string konyv_id;
+        private string id;
 
-        public string Konyv_id
+        public string Id
         {
             get
             {
-                return konyv_id;
+                return id;
             }
             set
             {
@@ -32,11 +32,7 @@ namespace etterem.Models.Records
                 {
                     throw new ArgumentNullException("A könyvtári szám nem lehet nulla!");
                 }
-                if (value.Length != 4)
-                {
-                    throw new ArgumentOutOfRangeException("A könyvtári szám 4 karakter hosszú");
-                }
-                konyv_id = value;
+                id = value;
             }
         }
 

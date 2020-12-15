@@ -58,7 +58,7 @@ namespace etterem
         {
             Konyvek konyv = new Konyvek()
             {
-                Konyv_id = tb_Konyv_id.Text,
+                Id = tb_Konyv_id.Text,
                 Raktari_szam = tb_Raktari_szam.Text,
                 Kiado = tb_Kiado.Text,
                 Cim = tb_Cim.Text,
@@ -98,7 +98,7 @@ namespace etterem
             foreach (DataGridViewRow selectedRows in dgv_Konyvek.SelectedRows)
             {
                 Konyvek TorlendoRekord = new Konyvek();
-                TorlendoRekord.Konyv_id = selectedRows.Cells["konyv_id"].Value.ToString();
+                TorlendoRekord.Id = selectedRows.Cells["id"].Value.ToString();
 
                 ToroltSorok += konyvManager.Delete(TorlendoRekord);
             }
@@ -155,16 +155,16 @@ namespace etterem
             dgv_Konyvek.Rows.Clear();
             dgv_Konyvek.Columns.Clear();
 
-            DataGridViewColumn Konyv_idColumn = new DataGridViewColumn()
+            DataGridViewColumn IdColumn = new DataGridViewColumn()
             {
                 CellTemplate = new DataGridViewTextBoxCell(),
-                Name = "konyv_id",
+                Name = "id",
                 HeaderText = "Könyv ID",
                 Visible = true,
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
 
             };
-            dgv_Konyvek.Columns.Add(Konyv_idColumn);
+            dgv_Konyvek.Columns.Add(IdColumn);
 
             DataGridViewColumn Raktari_szamColumn = new DataGridViewColumn()
             {
@@ -259,9 +259,9 @@ namespace etterem
             {
                 DataGridViewRow dataGridViewRow = new DataGridViewRow();
 
-                DataGridViewCell Konyv_idCell = new DataGridViewTextBoxCell();
-                Konyv_idCell.Value = records_KonyvekList[i].Konyv_id;
-                dataGridViewRow.Cells.Add(Konyv_idCell);
+                DataGridViewCell IdCell = new DataGridViewTextBoxCell();
+                IdCell.Value = records_KonyvekList[i].Id;
+                dataGridViewRow.Cells.Add(IdCell);
 
                 DataGridViewCell Raktari_szamCell = new DataGridViewTextBoxCell();
                 Raktari_szamCell.Value = records_KonyvekList[i].Raktari_szam;

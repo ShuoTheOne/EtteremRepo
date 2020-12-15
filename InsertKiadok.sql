@@ -19,4 +19,4 @@ begin
     	(v_id, p_nev);
     p_out_rowcnt := SQL%rowcount;
     commit;
-end sp_insertKiadok;
+end spInsert_kiadok;

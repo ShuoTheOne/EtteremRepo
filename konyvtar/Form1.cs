@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using etterem.Models.Manager;
-using etterem.Models.Records;
+using konyvtar.Models.Manager;
+using konyvtar.Models.Records;
 
-namespace etterem
+namespace konyvtar
 {
     public partial class Form1 : Form
     {

@@ -211,7 +211,7 @@ namespace etterem
         {
             string actual = tb_Konyv_id.Text;
             bool Correct = konyvManager.CheckKonyv_id(actual);
-           tb_Konyv_id.BackColor = Correct ? Color.Green : Color.Red;
+            tb_Konyv_id.BackColor = Correct ? Color.Green : Color.Red;
         }
 
         private void tb_Raktari_szam_Leave(object sender, EventArgs e)
@@ -224,8 +224,8 @@ namespace etterem
         private void tb_Kiado_Id_Leave(object sender, EventArgs e)
         {
             string actual = tb_Kiado_Id.Text;
-              bool Correct = kiadoManager.CheckKiado_id(actual);
-              tb_Kiado_Id.BackColor = Correct ? Color.Green : Color.Red;
+            bool Correct = kiadoManager.CheckKiado_id(actual);
+            tb_Kiado_Id.BackColor = Correct ? Color.Green : Color.Red;
         }
 
         private void btn_Kiado_Beszuras_Click(object sender, EventArgs e)

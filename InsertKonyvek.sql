@@ -15,7 +15,7 @@ begin
     p_out_rowcnt := 0;
     v_kiado_id := sf_getKiadoId(p_kiado);
     if v_kiado_id is null then
-        sp_insertKiadok(p_kiado);
+        spInsert_kiadok(p_kiado);
         v_kiado_id := sf_getKiadoId(p_kiado);
     end if;
     v_check_konyv_id := sf_check_konyv_id(p_konyv_id);

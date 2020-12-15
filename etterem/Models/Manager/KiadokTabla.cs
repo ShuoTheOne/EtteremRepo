@@ -38,7 +38,6 @@ namespace etterem.Models.Manager
             while (reader.Read())
             {
                 Kiadok kiado = new Kiadok();
-                kiado.Id = reader["id"].ToString();
                 kiado.Nev = reader["nev"].ToString();
 
                 records.Add(kiado);

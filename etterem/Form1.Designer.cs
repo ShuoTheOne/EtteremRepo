@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgv_Konyvek = new System.Windows.Forms.DataGridView();
             this.lblKonyv_id = new System.Windows.Forms.Label();
             this.btn_Torles = new System.Windows.Forms.Button();
@@ -45,8 +45,6 @@
             this.dt_Kiadas_eve = new System.Windows.Forms.DateTimePicker();
             this.cb_Mufaj = new System.Windows.Forms.ComboBox();
             this.lbl_Kiado_Id = new System.Windows.Forms.Label();
-            this.lbl_Kiado_Nev = new System.Windows.Forms.Label();
-            this.tb_Kiado_Id = new System.Windows.Forms.TextBox();
             this.tb_Kiado_Nev = new System.Windows.Forms.TextBox();
             this.dgv_Kiadok = new System.Windows.Forms.DataGridView();
             this.btn_Kiado_Beszuras = new System.Windows.Forms.Button();
@@ -208,51 +206,33 @@
             this.lbl_Kiado_Id.AutoSize = true;
             this.lbl_Kiado_Id.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Kiado_Id.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbl_Kiado_Id.Location = new System.Drawing.Point(814, 298);
+            this.lbl_Kiado_Id.Location = new System.Drawing.Point(807, 321);
             this.lbl_Kiado_Id.Name = "lbl_Kiado_Id";
-            this.lbl_Kiado_Id.Size = new System.Drawing.Size(58, 17);
+            this.lbl_Kiado_Id.Size = new System.Drawing.Size(69, 17);
             this.lbl_Kiado_Id.TabIndex = 15;
-            this.lbl_Kiado_Id.Text = "Kiadó ID";
-            // 
-            // lbl_Kiado_Nev
-            // 
-            this.lbl_Kiado_Nev.AutoSize = true;
-            this.lbl_Kiado_Nev.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Kiado_Nev.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbl_Kiado_Nev.Location = new System.Drawing.Point(814, 331);
-            this.lbl_Kiado_Nev.Name = "lbl_Kiado_Nev";
-            this.lbl_Kiado_Nev.Size = new System.Drawing.Size(69, 17);
-            this.lbl_Kiado_Nev.TabIndex = 16;
-            this.lbl_Kiado_Nev.Text = "Kiado Név";
-            // 
-            // tb_Kiado_Id
-            // 
-            this.tb_Kiado_Id.Location = new System.Drawing.Point(905, 295);
-            this.tb_Kiado_Id.Name = "tb_Kiado_Id";
-            this.tb_Kiado_Id.Size = new System.Drawing.Size(159, 20);
-            this.tb_Kiado_Id.TabIndex = 17;
-            this.tb_Kiado_Id.Leave += new System.EventHandler(this.tb_Kiado_Id_Leave);
+            this.lbl_Kiado_Id.Text = "Kiadó Név";
             // 
             // tb_Kiado_Nev
             // 
-            this.tb_Kiado_Nev.Location = new System.Drawing.Point(905, 331);
+            this.tb_Kiado_Nev.Location = new System.Drawing.Point(897, 318);
             this.tb_Kiado_Nev.Name = "tb_Kiado_Nev";
             this.tb_Kiado_Nev.Size = new System.Drawing.Size(159, 20);
-            this.tb_Kiado_Nev.TabIndex = 18;
+            this.tb_Kiado_Nev.TabIndex = 17;
+            this.tb_Kiado_Nev.Leave += new System.EventHandler(this.tb_Kiado_Id_Leave);
             // 
             // dgv_Kiadok
             // 
             this.dgv_Kiadok.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv_Kiadok.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_Kiadok.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Kiadok.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Kiadok.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_Kiadok.Location = new System.Drawing.Point(767, 12);
             this.dgv_Kiadok.Name = "dgv_Kiadok";
             this.dgv_Kiadok.Size = new System.Drawing.Size(365, 261);
@@ -300,8 +280,6 @@
             this.Controls.Add(this.btn_Kiado_Beszuras);
             this.Controls.Add(this.dgv_Kiadok);
             this.Controls.Add(this.tb_Kiado_Nev);
-            this.Controls.Add(this.tb_Kiado_Id);
-            this.Controls.Add(this.lbl_Kiado_Nev);
             this.Controls.Add(this.lbl_Kiado_Id);
             this.Controls.Add(this.cb_Mufaj);
             this.Controls.Add(this.dt_Kiadas_eve);
@@ -346,8 +324,6 @@
         private System.Windows.Forms.DateTimePicker dt_Kiadas_eve;
         private System.Windows.Forms.ComboBox cb_Mufaj;
         private System.Windows.Forms.Label lbl_Kiado_Id;
-        private System.Windows.Forms.Label lbl_Kiado_Nev;
-        private System.Windows.Forms.TextBox tb_Kiado_Id;
         private System.Windows.Forms.TextBox tb_Kiado_Nev;
         private System.Windows.Forms.DataGridView dgv_Kiadok;
         private System.Windows.Forms.Button btn_Kiado_Beszuras;

@@ -107,7 +107,7 @@ namespace konyvtar.Models.Manager
                 CommandText = "spUpdate_konyvek"
             };
 
-            OracleParameter IdParameter = new OracleParameter()
+            /*OracleParameter IdParameter = new OracleParameter()
             {
                 DbType = System.Data.DbType.String,
                 ParameterName = "p_id",
@@ -115,7 +115,7 @@ namespace konyvtar.Models.Manager
                 Value = record.Id
             };
             command.Parameters.Add(IdParameter);
-
+            */
             OracleParameter Raktari_szamParameter = new OracleParameter()
             {
                 DbType = System.Data.DbType.String,
@@ -189,7 +189,7 @@ namespace konyvtar.Models.Manager
                 CommandText = "spInsert_books"
             };
 
-            OracleParameter IdParameter = new OracleParameter()
+           /* OracleParameter IdParameter = new OracleParameter()
             {
                 DbType = System.Data.DbType.String,
                 ParameterName = "p_id",
@@ -197,7 +197,7 @@ namespace konyvtar.Models.Manager
                 Value = record.Id
             };
             command.Parameters.Add(IdParameter);
-
+           */
             OracleParameter Raktari_szamParameter = new OracleParameter()
             {
                 DbType = System.Data.DbType.String,
@@ -246,9 +246,11 @@ namespace konyvtar.Models.Manager
 
             command.Connection = oc;
             command.Transaction = ot;
+            
             try
             {
-                command.ExecuteNonQuery();
+                int szam = command.ExecuteNonQuery();
+
                 ot.Commit();
             }
             catch (Exception)

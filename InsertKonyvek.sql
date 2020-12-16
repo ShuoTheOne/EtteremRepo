@@ -11,9 +11,12 @@ as
     v_id int;
 begin
     select max(id) into v_id from books;
+    if v_id is null then        
+        v_id := 0;
+    end if;
     v_id := v_id + 1;
     insert into
-        books(id, raktari_szam, kiado_id, cim, mufaj,  kiadas_eve)
+        books(id, raktari_szam, kiado_id, cim, mufaj, kiadas_eve)
     values
         (v_id, p_raktari_szam, p_kiado_id, p_cim, p_mufaj, p_kiadas_eve);
     commit;

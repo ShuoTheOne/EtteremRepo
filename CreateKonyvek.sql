@@ -8,8 +8,5 @@ create table books
     mufaj varchar2(60) not null,
     kiadas_eve date not null,
     
-    constraint pk_books primary key(id),
-    constraint uq_books_raktari_szam unique(raktari_szam),
-    constraint fk_kiadok foreign key(kiado_id)
-        references kiadok(id)
+    constraint pk_books primary key(id)
 );

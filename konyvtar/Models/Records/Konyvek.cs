@@ -93,9 +93,9 @@ namespace konyvtar.Models.Records
             }
         }
 
-        private Enum mufaj;
+        private Mufaj mufaj;
 
-        public Enum Mufaj
+        public Mufaj Mufaj
         {
             get
             {
@@ -103,10 +103,6 @@ namespace konyvtar.Models.Records
             }
             set
             {
-                if (value == null)
-                {
-                    throw new ArgumentNullException("a műfaj nem lehet null");
-                }
                 mufaj = value;
 
             }

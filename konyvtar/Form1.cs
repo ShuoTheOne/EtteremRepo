@@ -60,7 +60,7 @@ namespace konyvtar
                 Raktari_szam = tb_Raktari_szam.Text,
                 Kiado_id = tb_Kiado.Text,
                 Cim = tb_Cim.Text,
-                Kiadas_eve = dt_Kiadas_eve.Value,
+                Kiadas_eve = tb_Kiadas_eve.Text,
                 Mufaj = (Mufaj)cb_Mufaj.SelectedItem
             };
             konyvManager.Insert(konyv);
@@ -177,8 +177,6 @@ namespace konyvtar
         private void Form1_Load_1(object sender, EventArgs e)
         {
             backgroundWorker1.WorkerSupportsCancellation = true;
-            dt_Kiadas_eve.CustomFormat = "yyyy";
-            dt_Kiadas_eve.ShowUpDown = true;
             cb_Mufaj.DataSource = Enum.GetValues(typeof(Mufaj));
 
             InitializeDataGridView();

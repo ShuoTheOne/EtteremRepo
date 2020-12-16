@@ -8,7 +8,7 @@ namespace konyvtar.Models.Records
 
         }
 
-        public Konyvek(string id, string raktari_szam, string kiado_id, string cim, Mufaj Mufaj, DateTime kiadas_eve)
+        public Konyvek(string id, string raktari_szam, string kiado_id, string cim, Mufaj Mufaj, string kiadas_eve)
         {
             this.Id = id;
             this.Raktari_szam = raktari_szam;
@@ -108,9 +108,9 @@ namespace konyvtar.Models.Records
             }
         }
 
-        private DateTime kiadas_eve;
+        private string kiadas_eve;
 
-        public DateTime Kiadas_eve
+        public string Kiadas_eve
         {
             get
             {
@@ -118,6 +118,14 @@ namespace konyvtar.Models.Records
             }
             set
             {
+                if (value == null)
+                {
+                    throw new ArgumentNullException("a dátum nem lehet null");
+                }
+                if (value.Length > 2021)
+                {
+                    throw new ArgumentNullException("ez a könyv még nem jelenhetett meg!");
+                }
                 kiadas_eve = value;
             }
         }

@@ -44,7 +44,7 @@ namespace konyvtar.Models.Manager
              // konyv.Mufaj = (Mufaj)reader["mufaj"];
                 konyv.Mufaj = (Mufaj)Enum.Parse(typeof(Mufaj), reader["mufaj"].ToString());
                 konyv.Kiado_id = reader["kiado_id"].ToString();
-                konyv.Kiadas_eve = DateTime.Parse(reader["kiadas_eve"].ToString());
+                konyv.Kiadas_eve = (reader["kiadas_eve"].ToString());
 
                 records.Add(konyv);
             }
@@ -236,7 +236,7 @@ namespace konyvtar.Models.Manager
 
             OracleParameter Kiadas_eveParameter = new OracleParameter()
             {
-                DbType = System.Data.DbType.DateTime,
+                DbType = System.Data.DbType.String,
                 ParameterName = "p_kiadas_eve",
                 Direction = System.Data.ParameterDirection.Input,
                 Value = record.Kiadas_eve

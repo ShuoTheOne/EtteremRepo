@@ -19,7 +19,7 @@ namespace konyvtar
         List<Konyvek> records_KonyvekList;
         KiadokTabla kiadoManager;
         List<Kiadok> records_KiadokList;
-        BackgroundWorker bgWorker;
+
 
         public Form1()
         {
@@ -28,16 +28,11 @@ namespace konyvtar
             records_KonyvekList = new List<Konyvek>();
             kiadoManager = new KiadokTabla();
             records_KiadokList = new List<Kiadok>();
-            bgWorker = new BackgroundWorker();
-
+            backgroundWorker1.RunWorkerAsync();
 
             InitializeDataGridView();
             InitializeDataGridView2();
 
-            records_KonyvekList = konyvManager.Select();
-            records_KiadokList = kiadoManager.Select();
-            FillDataGridView();
-            FillDataGridView2();
         }
 
         // WORKER
@@ -69,7 +64,7 @@ namespace konyvtar
                 Kiadas_eve = dt_Kiadas_eve.Value
             };
             konyvManager.Insert(konyv);
-            bgWorker.RunWorkerAsync();
+            backgroundWorker1.RunWorkerAsync();
 
             MessageBox.Show("Sikeres könyv hozzáadás!");
             tb_Konyv_id.Clear();
@@ -86,7 +81,7 @@ namespace konyvtar
                 Nev = tb_Kiado_Nev.Text,
             };
             kiadoManager.Insert(kiado);
-            bgWorker.RunWorkerAsync();
+            backgroundWorker1.RunWorkerAsync();
 
             MessageBox.Show("Sikeres kiadó hozzáadás!");
             tb_Kiado_Nev.Clear();
@@ -109,7 +104,7 @@ namespace konyvtar
             MessageBox.Show(string.Format("{0} sor lett törölve", ToroltSorok));
             if (ToroltSorok != 0)
             {
-                bgWorker.RunWorkerAsync();
+                backgroundWorker1.RunWorkerAsync();
             }
         }
 
@@ -127,7 +122,7 @@ namespace konyvtar
             MessageBox.Show(string.Format("{0} sor lett törölve", ToroltSorok));
             if (ToroltSorok != 0)
             {
-                bgWorker.RunWorkerAsync();
+                backgroundWorker1.RunWorkerAsync();
             }
         }
 
@@ -140,7 +135,7 @@ namespace konyvtar
       */
         private void Form1_Load_1(object sender, EventArgs e)
         {
-            bgWorker.WorkerSupportsCancellation = true;
+            backgroundWorker1.WorkerSupportsCancellation = true;
             dt_Kiadas_eve.CustomFormat = "yyyy";
             dt_Kiadas_eve.ShowUpDown = true;
             cb_Mufaj.DataSource = Enum.GetValues(typeof(Mufaj));

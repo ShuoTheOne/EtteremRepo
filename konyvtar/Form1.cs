@@ -58,7 +58,7 @@ namespace konyvtar
             Konyvek konyv = new Konyvek()
             {
                 Raktari_szam = tb_Raktari_szam.Text,
-                Kiado = tb_Kiado.Text,
+                Kiado_id = tb_Kiado.Text,
                 Cim = tb_Cim.Text,
                 Mufaj = (Mufaj)cb_Mufaj.SelectedItem,
                 Kiadas_eve = dt_Kiadas_eve.Value
@@ -86,6 +86,22 @@ namespace konyvtar
             MessageBox.Show("Sikeres kiadó hozzáadás!");
             tb_Kiado_Nev.Clear();
             tb_Kiado_Nev.Clear();
+        }
+
+        // UPDATE GOMBOK
+
+        private void btn_Kiado_Update_Click(object sender, EventArgs e)
+        {
+            int UpdateSorok = 0;
+            foreach (DataGridViewRow selectedRows in dgv_Kiadok.SelectedRows)
+            {
+                Kiadok UpdateRekord = new Kiadok();
+                Kiadok Delete = new Kiadok();
+                UpdateRekord.Id = selectedRows.Cells["id"].Value.ToString();
+                UpdateSorok += kiadoManager.Update(UpdateRekord);
+            }
+            MessageBox.Show(string.Format("{0} sor lett updatelve", UpdateSorok));
+                backgroundWorker1.RunWorkerAsync();
         }
 
         // TÖRLÉS GOMBOK
@@ -263,7 +279,7 @@ namespace konyvtar
                 dataGridViewRow.Cells.Add(Raktari_szamCell);
 
                 DataGridViewCell KiadoCell = new DataGridViewTextBoxCell();
-                KiadoCell.Value = records_KonyvekList[i].Kiado;
+                KiadoCell.Value = records_KonyvekList[i].Kiado_id;
                 dataGridViewRow.Cells.Add(KiadoCell);
 
                 DataGridViewCell CimCell = new DataGridViewTextBoxCell();
@@ -314,23 +330,23 @@ namespace konyvtar
         {
             string actual = tb_Konyv_id.Text;
              konyvManager.CheckKonyv_id(actual);
-        //    tb_Konyv_id.BackColor = Correct ? Color.Green : Color.Red;
+         //  tb_Konyv_id.BackColor = Correct ? Color.Green : Color.Red;
         }
 
         private void tb_Raktari_szam_Leave(object sender, EventArgs e)
         {
             string actual = tb_Raktari_szam.Text;
             konyvManager.CheckRaktari_szam(actual);
-           // tb_Raktari_szam.BackColor = Correct ? Color.Green : Color.Red;
+         //  tb_Raktari_szam.BackColor = Correct ? Color.Green : Color.Red;
         }
 
         private void tb_Kiado_Id_Leave(object sender, EventArgs e)
         {
             string actual = tb_Kiado_Nev.Text;
             kiadoManager.CheckKiado_id(actual);
-         //   tb_Kiado_Id.BackColor = Correct ? Color.Green : Color.Red;
+          //  tb_Kiado_Id.BackColor = Correct ? Color.Green : Color.Red;
         }
 
-      
+       
     }
 }

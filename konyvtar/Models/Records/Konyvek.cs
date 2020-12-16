@@ -8,11 +8,11 @@ namespace konyvtar.Models.Records
 
         }
 
-        public Konyvek(int id, string raktari_szam, string kiado, string cim, Mufaj Mufaj, DateTime kiadas_eve)
+        public Konyvek(int id, string raktari_szam, string kiado_id, string cim, Mufaj Mufaj, DateTime kiadas_eve)
         {
             this.Id = id;
             this.Raktari_szam = raktari_szam;
-            this.Kiado = kiado;
+            this.Kiado_id = kiado_id;
             this.Cim = cim;
             this.Mufaj = mufaj;
             this.Kiadas_eve = kiadas_eve;
@@ -56,13 +56,13 @@ namespace konyvtar.Models.Records
             }
         }
 
-        private string kiado;
+        private string kiado_id;
 
-        public string Kiado
+        public string Kiado_id
         {
             get
             {
-                return kiado;
+                return kiado_id;
             }
             set
             {
@@ -70,7 +70,7 @@ namespace konyvtar.Models.Records
                 {
                     throw new ArgumentNullException("a kiadó nem lehet null");
                 }
-                kiado = value;
+                kiado_id = value;
             }
         }
 

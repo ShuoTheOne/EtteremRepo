@@ -1,6 +1,5 @@
 create or replace procedure spInsert_books
 (
-    p_id in books.id%type,
 	p_raktari_szam in books.raktari_szam%type,
 	p_kiado_id in books.kiado_id%type,
 	p_cim in books.cim%type,

@@ -42,7 +42,7 @@ namespace konyvtar.Models.Manager
                 konyv.Raktari_szam = reader["raktari_szam"].ToString();
                 konyv.Cim = reader["cim"].ToString();
                 konyv.Mufaj = (Mufaj)reader["mufaj"];
-                konyv.Kiado = reader["kiado_id"].ToString();
+                konyv.Kiado_id = reader["kiado_id"].ToString();
                 konyv.Kiadas_eve = DateTime.Parse(reader["kiadas_eve"].ToString());
 
                 records.Add(konyv);
@@ -130,7 +130,7 @@ namespace konyvtar.Models.Manager
                 DbType = System.Data.DbType.String,
                 ParameterName = "p_kiado_id",
                 Direction = System.Data.ParameterDirection.Input,
-                Value = record.Kiado
+                Value = record.Kiado_id
             };
             command.Parameters.Add(KiadoParameter);
 

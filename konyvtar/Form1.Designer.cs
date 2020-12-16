@@ -50,6 +50,7 @@
             this.btn_Kiado_Beszuras = new System.Windows.Forms.Button();
             this.btn_Kiado_Torles = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.btn_Kiado_Update = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Konyvek)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Kiadok)).BeginInit();
             this.SuspendLayout();
@@ -245,7 +246,7 @@
             // 
             this.btn_Kiado_Beszuras.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Kiado_Beszuras.ForeColor = System.Drawing.Color.Navy;
-            this.btn_Kiado_Beszuras.Location = new System.Drawing.Point(792, 369);
+            this.btn_Kiado_Beszuras.Location = new System.Drawing.Point(741, 369);
             this.btn_Kiado_Beszuras.Name = "btn_Kiado_Beszuras";
             this.btn_Kiado_Beszuras.Size = new System.Drawing.Size(135, 38);
             this.btn_Kiado_Beszuras.TabIndex = 20;
@@ -257,7 +258,7 @@
             // 
             this.btn_Kiado_Torles.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Kiado_Torles.ForeColor = System.Drawing.Color.Navy;
-            this.btn_Kiado_Torles.Location = new System.Drawing.Point(954, 370);
+            this.btn_Kiado_Torles.Location = new System.Drawing.Point(882, 369);
             this.btn_Kiado_Torles.Name = "btn_Kiado_Torles";
             this.btn_Kiado_Torles.Size = new System.Drawing.Size(124, 36);
             this.btn_Kiado_Torles.TabIndex = 21;
@@ -270,12 +271,26 @@
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
+            // btn_Kiado_Update
+            // 
+            this.btn_Kiado_Update.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Kiado_Update.ForeColor = System.Drawing.Color.Navy;
+            this.btn_Kiado_Update.Location = new System.Drawing.Point(1012, 369);
+            this.btn_Kiado_Update.Name = "btn_Kiado_Update";
+            this.btn_Kiado_Update.Size = new System.Drawing.Size(135, 38);
+            this.btn_Kiado_Update.TabIndex = 22;
+            this.btn_Kiado_Update.Text = "Kiadó Update";
+            this.btn_Kiado_Update.UseVisualStyleBackColor = true;
+            this.btn_Kiado_Update.Visible = false;
+            this.btn_Kiado_Update.Click += new System.EventHandler(this.btn_Kiado_Update_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RoyalBlue;
             this.ClientSize = new System.Drawing.Size(1159, 428);
+            this.Controls.Add(this.btn_Kiado_Update);
             this.Controls.Add(this.btn_Kiado_Torles);
             this.Controls.Add(this.btn_Kiado_Beszuras);
             this.Controls.Add(this.dgv_Kiadok);
@@ -330,6 +345,7 @@
         private System.Windows.Forms.Button btn_Kiado_Beszuras;
         private System.Windows.Forms.Button btn_Kiado_Torles;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button btn_Kiado_Update;
     }
 }
 

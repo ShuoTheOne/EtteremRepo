@@ -89,6 +89,45 @@ namespace konyvtar.Models.Manager
             return affectedRows;
         }
 
+        public int Update(Kiadok record)
+        {
+            OracleConnection oc = GetOracleConnection();
+            oc.Open();
+
+            OracleTransaction ot = oc.BeginTransaction(System.Data.IsolationLevel.ReadCommitted);
+
+            OracleCommand command = new OracleCommand()
+            {
+                CommandType = System.Data.CommandType.Text,
+                CommandText = "spUpdate_kiadok"
+            };
+
+            OracleParameter IdParameter = new OracleParameter()
+            {
+                DbType = System.Data.DbType.String,
+                ParameterName = ":id",
+                Direction = System.Data.ParameterDirection.Input,
+                Value = record.Id
+            };
+            command.Parameters.Add(IdParameter);
+
+            command.Connection = oc;
+            command.Transaction = ot;
+
+            int affectedRows = 0;
+            try
+            {
+                affectedRows = command.ExecuteNonQuery();
+                ot.Commit();
+            }
+            catch (Exception)
+            {
+                ot.Rollback();
+            }
+            oc.Close();
+
+            return affectedRows;
+        }
 
         public void Insert(Kiadok record)
         {

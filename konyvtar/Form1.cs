@@ -75,17 +75,33 @@ namespace konyvtar
 
         private void btn_Kiado_Beszuras_Click(object sender, EventArgs e)
         {
-            Kiadok kiado = new Kiadok()
+            try
             {
-                Id = tb_Kiado_Nev.Text,
-                Nev = tb_Kiado_Nev.Text,
-            };
-            kiadoManager.Insert(kiado);
-            backgroundWorker1.RunWorkerAsync();
+                Kiadok kiado = new Kiadok()
+                {
+                    Id = tb_Kiado_Nev.Text,
+                    Nev = tb_Kiado_Nev.Text,
+                };
+                kiadoManager.Insert(kiado);
+                backgroundWorker1.RunWorkerAsync();
 
-            MessageBox.Show("Sikeres kiadó hozzáadás!");
-            tb_Kiado_Nev.Clear();
-            tb_Kiado_Nev.Clear();
+                MessageBox.Show("Sikeres kiadó hozzáadás!");
+                tb_Kiado_Nev.Clear();
+                tb_Kiado_Nev.Clear();
+            }
+            catch(InvalidRaktariSzamException)
+            {
+                MessageBox.Show("A raktári szám mező helytelen");
+            }
+            catch(InvalidKiadoException)
+            {
+                MessageBox.Show("A kiadó mező helytelen");
+            }
+            catch(InvalidCimException)
+            {
+                MessageBox.Show("A cím helytelen");
+            }
+
         }
 
         // UPDATE GOMBOK
@@ -96,7 +112,6 @@ namespace konyvtar
             foreach (DataGridViewRow selectedRows in dgv_Kiadok.SelectedRows)
             {
                 Kiadok UpdateRekord = new Kiadok();
-                Kiadok Delete = new Kiadok();
                 UpdateRekord.Id = selectedRows.Cells["id"].Value.ToString();
                 kiadoManager.Update(UpdateRekord);
             }

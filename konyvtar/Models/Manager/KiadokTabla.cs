@@ -125,6 +125,7 @@ namespace konyvtar.Models.Manager
 
             try
             {
+                command.ExecuteNonQuery();
                 ot.Commit();
             }
             catch (Exception)

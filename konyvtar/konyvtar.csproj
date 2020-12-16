@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\InvalidCimException.cs" />
+    <Compile Include="Exceptions\InvalidKiadoException.cs" />
+    <Compile Include="Exceptions\InvalidRaktariSzamException.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

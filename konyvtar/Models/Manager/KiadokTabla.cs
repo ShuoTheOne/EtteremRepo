@@ -89,7 +89,7 @@ namespace konyvtar.Models.Manager
             return affectedRows;
         }
 
-        public int Update(Kiadok record)
+        public void Update(Kiadok record)
         {
             OracleConnection oc = GetOracleConnection();
             oc.Open();
@@ -105,19 +105,26 @@ namespace konyvtar.Models.Manager
             OracleParameter IdParameter = new OracleParameter()
             {
                 DbType = System.Data.DbType.String,
-                ParameterName = ":id",
+                ParameterName = "p_id",
                 Direction = System.Data.ParameterDirection.Input,
                 Value = record.Id
             };
             command.Parameters.Add(IdParameter);
 
+            OracleParameter NevParameter = new OracleParameter()
+            {
+                DbType = System.Data.DbType.String,
+                ParameterName = "p_nev",
+                Direction = System.Data.ParameterDirection.Input,
+                Value = record.Nev
+            };
+            command.Parameters.Add(NevParameter);
+
             command.Connection = oc;
             command.Transaction = ot;
 
-            int affectedRows = 0;
             try
             {
-                affectedRows = command.ExecuteNonQuery();
                 ot.Commit();
             }
             catch (Exception)
@@ -125,8 +132,6 @@ namespace konyvtar.Models.Manager
                 ot.Rollback();
             }
             oc.Close();
-
-            return affectedRows;
         }
 
         public void Insert(Kiadok record)

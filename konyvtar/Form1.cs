@@ -98,10 +98,11 @@ namespace konyvtar
                 Kiadok UpdateRekord = new Kiadok();
                 Kiadok Delete = new Kiadok();
                 UpdateRekord.Id = selectedRows.Cells["id"].Value.ToString();
-                UpdateSorok += kiadoManager.Update(UpdateRekord);
+                kiadoManager.Update(UpdateRekord);
             }
             MessageBox.Show(string.Format("{0} sor lett updatelve", UpdateSorok));
                 backgroundWorker1.RunWorkerAsync();
+
         }
 
         // TÖRLÉS GOMBOK

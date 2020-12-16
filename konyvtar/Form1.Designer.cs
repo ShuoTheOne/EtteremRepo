@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgv_Konyvek = new System.Windows.Forms.DataGridView();
             this.lblKonyv_id = new System.Windows.Forms.Label();
             this.btn_Torles = new System.Windows.Forms.Button();
@@ -230,14 +230,14 @@
             this.dgv_Kiadok.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_Kiadok.BackgroundColor = System.Drawing.Color.Teal;
             this.dgv_Kiadok.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Kiadok.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Kiadok.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_Kiadok.Location = new System.Drawing.Point(767, 12);
             this.dgv_Kiadok.Name = "dgv_Kiadok";
             this.dgv_Kiadok.Size = new System.Drawing.Size(365, 261);
@@ -261,7 +261,7 @@
             this.btn_Kiado_Torles.ForeColor = System.Drawing.Color.Navy;
             this.btn_Kiado_Torles.Location = new System.Drawing.Point(882, 369);
             this.btn_Kiado_Torles.Name = "btn_Kiado_Torles";
-            this.btn_Kiado_Torles.Size = new System.Drawing.Size(124, 36);
+            this.btn_Kiado_Torles.Size = new System.Drawing.Size(124, 38);
             this.btn_Kiado_Torles.TabIndex = 21;
             this.btn_Kiado_Torles.Text = "Kiadó Törlés";
             this.btn_Kiado_Torles.UseVisualStyleBackColor = true;
@@ -290,7 +290,7 @@
             this.btn_Update_Konyv.ForeColor = System.Drawing.Color.Navy;
             this.btn_Update_Konyv.Location = new System.Drawing.Point(534, 369);
             this.btn_Update_Konyv.Name = "btn_Update_Konyv";
-            this.btn_Update_Konyv.Size = new System.Drawing.Size(106, 38);
+            this.btn_Update_Konyv.Size = new System.Drawing.Size(144, 38);
             this.btn_Update_Konyv.TabIndex = 23;
             this.btn_Update_Konyv.Text = "Könyv Update";
             this.btn_Update_Konyv.UseVisualStyleBackColor = true;

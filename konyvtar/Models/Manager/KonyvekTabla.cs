@@ -245,9 +245,6 @@ namespace konyvtar.Models.Manager
 
             command.Connection = oc;
             command.Transaction = ot;
-
-            
-
             try
             {
                 command.ExecuteNonQuery();

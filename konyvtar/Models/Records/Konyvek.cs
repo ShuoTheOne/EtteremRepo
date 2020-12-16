@@ -28,7 +28,7 @@ namespace konyvtar.Models.Records
             }
             set
             {
-                if (value.Length == 0)
+                if (value == null)
                 {
                     throw new ArgumentNullException("A könyvtári szám nem lehet nulla!");
                 }

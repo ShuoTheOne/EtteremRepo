@@ -60,8 +60,8 @@ namespace konyvtar
                 Raktari_szam = tb_Raktari_szam.Text,
                 Kiado_id = tb_Kiado.Text,
                 Cim = tb_Cim.Text,
-                Mufaj = (Mufaj)cb_Mufaj.SelectedItem,
-                Kiadas_eve = dt_Kiadas_eve.Value
+                Kiadas_eve = dt_Kiadas_eve.Value,
+                Mufaj = (Mufaj)cb_Mufaj.SelectedItem
             };
             konyvManager.Insert(konyv);
             backgroundWorker1.RunWorkerAsync();
@@ -80,13 +80,12 @@ namespace konyvtar
                 Kiadok kiado = new Kiadok()
                 {
                     Id = tb_Kiado_Nev.Text,
-                    Nev = tb_Kiado_Nev.Text,
+                    Nev = tb_Kiado_Nev.Text
                 };
                 kiadoManager.Insert(kiado);
                 backgroundWorker1.RunWorkerAsync();
 
                 MessageBox.Show("Sikeres kiadó hozzáadás!");
-                tb_Kiado_Nev.Clear();
                 tb_Kiado_Nev.Clear();
             }
             catch(InvalidRaktariSzamException)
@@ -173,11 +172,6 @@ namespace konyvtar
 
         // FORM 1 COMMANDOK
 
-      /*  private void Form1_Show(object sender, EventArgs e)
-        {
-            bgWorker.RunWorkerAsync();
-        }
-      */
         private void Form1_Load_1(object sender, EventArgs e)
         {
             backgroundWorker1.WorkerSupportsCancellation = true;

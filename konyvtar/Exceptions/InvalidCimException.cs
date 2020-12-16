@@ -8,5 +8,6 @@ namespace konyvtar
 {
     public class InvalidCimException : Exception
     {
+        
     }
 }

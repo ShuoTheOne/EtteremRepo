@@ -23,13 +23,13 @@ namespace konyvtar.Models.Manager
         {
             List<Konyvek> records = new List<Konyvek>();
 
-            OracleConnection oc = new OracleConnection();
+            OracleConnection oc = GetOracleConnection();
             oc.Open();
 
             OracleCommand command = new OracleCommand()
             {
                 CommandType = System.Data.CommandType.Text,
-                CommandText = "SELECT books.id, books.raktari_szam, kiado.nev, books.mufaj, books.cim, books.kiadas_eve FROM books INNER JOIN kiadok ON kiadok.id = books.kiado_id"
+                CommandText = "SELECT books.id, books.raktari_szam, books.kiado_id, books.mufaj, books.cim, books.kiadas_eve FROM books"
             };
 
             command.Connection = oc;
@@ -38,11 +38,12 @@ namespace konyvtar.Models.Manager
             while (reader.Read())
             {
                 Konyvek konyv = new Konyvek();
-                konyv.Id = reader["id"].ToString();
+                konyv.Id = int.Parse(reader["id"].ToString());
                 konyv.Raktari_szam = reader["raktari_szam"].ToString();
                 konyv.Cim = reader["cim"].ToString();
                 konyv.Mufaj = (Mufaj)reader["mufaj"];
-                konyv.Kiado = reader["nev"].ToString();
+                konyv.Kiado = reader["kiado_id"].ToString();
+                konyv.Kiadas_eve = DateTime.Parse(reader["kiadas_eve"].ToString());
 
                 records.Add(konyv);
             }
@@ -108,7 +109,7 @@ namespace konyvtar.Models.Manager
 
             OracleParameter IdParameter = new OracleParameter()
             {
-                DbType = System.Data.DbType.String,
+                DbType = System.Data.DbType.Int32,
                 ParameterName = "p_id",
                 Direction = System.Data.ParameterDirection.Input,
                 Value = record.Id
@@ -127,7 +128,7 @@ namespace konyvtar.Models.Manager
             OracleParameter KiadoParameter = new OracleParameter()
             {
                 DbType = System.Data.DbType.String,
-                ParameterName = "p_kiado",
+                ParameterName = "p_kiado_id",
                 Direction = System.Data.ParameterDirection.Input,
                 Value = record.Kiado
             };

@@ -33,28 +33,35 @@ namespace konyvtar
 
             InitializeDataGridView();
             InitializeDataGridView2();
+
+            records_KonyvekList = konyvManager.Select();
+            records_KiadokList = kiadoManager.Select();
+            FillDataGridView();
+            FillDataGridView2();
         }
 
         // WORKER
 
-        private void bgworker1_DoWork_1(object sender, DoWorkEventArgs e)
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+
             records_KonyvekList = konyvManager.Select();
-            records_KiadokList = kiadoManager.Select();          
+            records_KiadokList = kiadoManager.Select();
         }
 
-        private void bgworker1_RunWorkerComplete(object sender, RunWorkerCompletedEventArgs e)
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             FillDataGridView();
             FillDataGridView2();
         }
 
+
         // BESZÚRÁS GOMBOK
         private void btn_Beszuras_Click(object sender, EventArgs e)
         {
+
             Konyvek konyv = new Konyvek()
             {
-                Id = tb_Konyv_id.Text,
                 Raktari_szam = tb_Raktari_szam.Text,
                 Kiado = tb_Kiado.Text,
                 Cim = tb_Cim.Text,
@@ -94,7 +101,7 @@ namespace konyvtar
             foreach (DataGridViewRow selectedRows in dgv_Konyvek.SelectedRows)
             {
                 Konyvek TorlendoRekord = new Konyvek();
-                TorlendoRekord.Id = selectedRows.Cells["id"].Value.ToString();
+                TorlendoRekord.Id = int.Parse(selectedRows.Cells["id"].Value.ToString());
 
                 ToroltSorok += konyvManager.Delete(TorlendoRekord);
             }
@@ -126,11 +133,11 @@ namespace konyvtar
 
         // FORM 1 COMMANDOK
 
-        private void Form1_Show(object sender, EventArgs e)
+      /*  private void Form1_Show(object sender, EventArgs e)
         {
             bgWorker.RunWorkerAsync();
         }
-
+      */
         private void Form1_Load_1(object sender, EventArgs e)
         {
             bgWorker.WorkerSupportsCancellation = true;
@@ -285,7 +292,7 @@ namespace konyvtar
 
         private void FillDataGridView2()
         {
-            DataGridViewRow[] dataGridViewRows2 = new DataGridViewRow[records_KiadokList.Count];
+            DataGridViewRow[] dataGridViewRows = new DataGridViewRow[records_KiadokList.Count];
 
             for (int i = 0; i < records_KiadokList.Count; i++)
             {
@@ -300,10 +307,10 @@ namespace konyvtar
                 dataGridViewRow.Cells.Add(NevCell);
 
 
-                dataGridViewRows2[i] = dataGridViewRow;
+                dataGridViewRows[i] = dataGridViewRow;
             }
             dgv_Kiadok.Rows.Clear();
-            dgv_Kiadok.Rows.AddRange(dataGridViewRows2);
+            dgv_Kiadok.Rows.AddRange(dataGridViewRows);
         }
 
 
@@ -328,5 +335,7 @@ namespace konyvtar
             kiadoManager.CheckKiado_id(actual);
          //   tb_Kiado_Id.BackColor = Correct ? Color.Green : Color.Red;
         }
+
+      
     }
 }

@@ -23,13 +23,13 @@ namespace konyvtar.Models.Manager
         {
             List<Kiadok> records = new List<Kiadok>();
 
-            OracleConnection oc = new OracleConnection();
+            OracleConnection oc =  GetOracleConnection();
             oc.Open();
 
             OracleCommand command = new OracleCommand()
             {
                 CommandType = System.Data.CommandType.Text,
-                CommandText = "SELECT id, nev FROM kiadok" 
+                CommandText = "SELECT * FROM kiadok" 
             };
 
             command.Connection = oc;
@@ -38,6 +38,7 @@ namespace konyvtar.Models.Manager
             while (reader.Read())
             {
                 Kiadok kiado = new Kiadok();
+                kiado.Id = reader["id"].ToString();
                 kiado.Nev = reader["nev"].ToString();
 
                 records.Add(kiado);

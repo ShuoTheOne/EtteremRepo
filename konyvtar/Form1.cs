@@ -107,22 +107,24 @@ namespace konyvtar
 
         private void btn_Kiado_Update_Click(object sender, EventArgs e)
         {
-            int UpdateSorok = 0;
-            foreach (DataGridViewRow selectedRows in dgv_Kiadok.SelectedRows)
+
+
+
+            Kiadok temp = new Kiadok()
             {
-                Kiadok UpdateRekord = new Kiadok();
-                UpdateRekord.Id = selectedRows.Cells["id"].Value.ToString();
-                kiadoManager.Update(UpdateRekord);
-            }
-            MessageBox.Show(string.Format("{0} sor lett updatelve", UpdateSorok));
-                backgroundWorker1.RunWorkerAsync();
+                Id = dgv_Kiadok.CurrentRow.Cells["id"].Value.ToString(),
+                Nev = tb_Kiado_Nev.Text
+            };
+            kiadoManager.Update(temp);
+            backgroundWorker1.RunWorkerAsync();
+            MessageBox.Show(string.Format("Updatelve"));
 
         }
 
         private void btn_Update_Konyv_Click(object sender, EventArgs e)
         {
             int UpdateSorok = 0;
-            foreach (DataGridViewRow selectedRows in dgv_Kiadok.SelectedRows)
+            foreach (DataGridViewRow selectedRows in dgv_Konyvek.SelectedRows)
             {
                 Konyvek UpdateRekord = new Konyvek();
                 UpdateRekord.Id = selectedRows.Cells["id"].Value.ToString();

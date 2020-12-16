@@ -99,7 +99,7 @@ namespace konyvtar.Models.Manager
             OracleCommand command = new OracleCommand()
             {
                 CommandType = System.Data.CommandType.Text,
-                CommandText = "spUpdate_kiadok"
+                CommandText = "UPDATE kiadok SET nev ='"+record.Nev +"' WHERE id = '" + record.Id +"'"
             };
 
             OracleParameter IdParameter = new OracleParameter()

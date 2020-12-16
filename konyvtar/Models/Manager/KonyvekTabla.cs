@@ -104,7 +104,7 @@ namespace konyvtar.Models.Manager
             OracleCommand command = new OracleCommand()
             {
                 CommandType = System.Data.CommandType.Text,
-                CommandText = "spUpdate_konyvek"
+                CommandText = "spUpdate_books"
             };
 
             /*OracleParameter IdParameter = new OracleParameter()

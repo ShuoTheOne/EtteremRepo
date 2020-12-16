@@ -123,15 +123,18 @@ namespace konyvtar
 
         private void btn_Update_Konyv_Click(object sender, EventArgs e)
         {
-            int UpdateSorok = 0;
-            foreach (DataGridViewRow selectedRows in dgv_Konyvek.SelectedRows)
+            Konyvek temp = new Konyvek()
             {
-                Konyvek UpdateRekord = new Konyvek();
-                UpdateRekord.Id = selectedRows.Cells["id"].Value.ToString();
-                konyvManager.Update(UpdateRekord);
-            }
-            MessageBox.Show(string.Format("{0} sor lett updatelve", UpdateSorok));
+                Id = dgv_Kiadok.CurrentRow.Cells["id"].Value.ToString(),
+                Raktari_szam = tb_Raktari_szam.Text,
+                Kiado_id = tb_Kiado.Text,
+                Cim = tb_Cim.Text,
+                Mufaj = (Mufaj)cb_Mufaj.SelectedValue,
+                Kiadas_eve = tb_Kiadas_eve.Text
+            };
+            konyvManager.Update(temp);
             backgroundWorker1.RunWorkerAsync();
+            MessageBox.Show(string.Format("Updatelve"));
         }
 
         // TÖRLÉS GOMBOK

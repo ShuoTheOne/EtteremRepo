@@ -51,7 +51,6 @@ namespace konyvtar.Models.Records
                 {
                     throw new ArgumentOutOfRangeException("A raktári szám 10 karakter hosszú");
                 }
-
                 raktari_szam = value;
             }
         }
@@ -122,7 +121,7 @@ namespace konyvtar.Models.Records
                 {
                     throw new ArgumentNullException("a dátum nem lehet null");
                 }
-                if (value.Length > 2021)
+                if (value.Length > 2021 || value.Length < -20000)
                 {
                     throw new ArgumentNullException("ez a könyv még nem jelenhetett meg!");
                 }

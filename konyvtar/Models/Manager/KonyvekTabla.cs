@@ -44,7 +44,7 @@ namespace konyvtar.Models.Manager
              // konyv.Mufaj = (Mufaj)reader["mufaj"];
                 konyv.Mufaj = (Mufaj)Enum.Parse(typeof(Mufaj), reader["mufaj"].ToString());
                 konyv.Kiado_id = reader["kiado_id"].ToString();
-                konyv.Kiadas_eve = (reader["kiadas_eve"].ToString());
+                konyv.Kiadas_eve = reader["kiadas_eve"].ToString();
 
                 records.Add(konyv);
             }

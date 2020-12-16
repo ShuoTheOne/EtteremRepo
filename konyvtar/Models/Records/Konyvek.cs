@@ -69,6 +69,10 @@ namespace konyvtar.Models.Records
                 {
                     throw new ArgumentNullException("a kiadó nem lehet null");
                 }
+                if (value.Length < 2)
+                {
+                    throw new ArgumentNullException("a kiadó nem lehet 2nél kisebb");
+                }
                 kiado_id = value;
             }
         }
@@ -86,6 +90,10 @@ namespace konyvtar.Models.Records
                 if (value == null)
                 {
                     throw new ArgumentNullException("a cím nem lehet null");
+                }
+                if (value.Length < 2)
+                {
+                    throw new ArgumentNullException("a cím nem lehet 2nél kisebb");
                 }
                 cim = value;
 
@@ -108,7 +116,6 @@ namespace konyvtar.Models.Records
         }
 
         private string kiadas_eve;
-
         public string Kiadas_eve
         {
             get

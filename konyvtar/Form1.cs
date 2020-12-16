@@ -120,6 +120,19 @@ namespace konyvtar
 
         }
 
+        private void btn_Update_Konyv_Click(object sender, EventArgs e)
+        {
+            int UpdateSorok = 0;
+            foreach (DataGridViewRow selectedRows in dgv_Kiadok.SelectedRows)
+            {
+                Konyvek UpdateRekord = new Konyvek();
+                UpdateRekord.Id = selectedRows.Cells["id"].Value.ToString();
+                konyvManager.Update(UpdateRekord);
+            }
+            MessageBox.Show(string.Format("{0} sor lett updatelve", UpdateSorok));
+            backgroundWorker1.RunWorkerAsync();
+        }
+
         // TÖRLÉS GOMBOK
 
         private void btn_Torles_Click(object sender, EventArgs e)
@@ -362,7 +375,5 @@ namespace konyvtar
             kiadoManager.CheckKiado_id(actual);
           //  tb_Kiado_Id.BackColor = Correct ? Color.Green : Color.Red;
         }
-
-       
     }
 }

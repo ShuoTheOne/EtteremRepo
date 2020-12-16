@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgv_Konyvek = new System.Windows.Forms.DataGridView();
             this.lblKonyv_id = new System.Windows.Forms.Label();
             this.btn_Torles = new System.Windows.Forms.Button();
@@ -51,6 +51,7 @@
             this.btn_Kiado_Torles = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btn_Kiado_Update = new System.Windows.Forms.Button();
+            this.btn_Update_Konyv = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Konyvek)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Kiadok)).BeginInit();
             this.SuspendLayout();
@@ -80,11 +81,11 @@
             // 
             // btn_Torles
             // 
-            this.btn_Torles.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Torles.Font = new System.Drawing.Font("Ebrima", 10F);
             this.btn_Torles.ForeColor = System.Drawing.Color.Navy;
-            this.btn_Torles.Location = new System.Drawing.Point(511, 369);
+            this.btn_Torles.Location = new System.Drawing.Point(433, 369);
             this.btn_Torles.Name = "btn_Torles";
-            this.btn_Torles.Size = new System.Drawing.Size(144, 38);
+            this.btn_Torles.Size = new System.Drawing.Size(95, 38);
             this.btn_Torles.TabIndex = 2;
             this.btn_Torles.Text = "Könyv Törlés";
             this.btn_Torles.UseVisualStyleBackColor = true;
@@ -92,11 +93,11 @@
             // 
             // btn_Beszuras
             // 
-            this.btn_Beszuras.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Beszuras.Font = new System.Drawing.Font("Ebrima", 10F);
             this.btn_Beszuras.ForeColor = System.Drawing.Color.Navy;
-            this.btn_Beszuras.Location = new System.Drawing.Point(348, 369);
+            this.btn_Beszuras.Location = new System.Drawing.Point(314, 369);
             this.btn_Beszuras.Name = "btn_Beszuras";
-            this.btn_Beszuras.Size = new System.Drawing.Size(146, 38);
+            this.btn_Beszuras.Size = new System.Drawing.Size(113, 38);
             this.btn_Beszuras.TabIndex = 3;
             this.btn_Beszuras.Text = "Könyv Beszúrás";
             this.btn_Beszuras.UseVisualStyleBackColor = true;
@@ -229,14 +230,14 @@
             this.dgv_Kiadok.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_Kiadok.BackgroundColor = System.Drawing.Color.Teal;
             this.dgv_Kiadok.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Kiadok.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Kiadok.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_Kiadok.Location = new System.Drawing.Point(767, 12);
             this.dgv_Kiadok.Name = "dgv_Kiadok";
             this.dgv_Kiadok.Size = new System.Drawing.Size(365, 261);
@@ -283,12 +284,25 @@
             this.btn_Kiado_Update.UseVisualStyleBackColor = true;
             this.btn_Kiado_Update.Click += new System.EventHandler(this.btn_Kiado_Update_Click);
             // 
+            // btn_Update_Konyv
+            // 
+            this.btn_Update_Konyv.Font = new System.Drawing.Font("Ebrima", 10F);
+            this.btn_Update_Konyv.ForeColor = System.Drawing.Color.Navy;
+            this.btn_Update_Konyv.Location = new System.Drawing.Point(534, 369);
+            this.btn_Update_Konyv.Name = "btn_Update_Konyv";
+            this.btn_Update_Konyv.Size = new System.Drawing.Size(106, 38);
+            this.btn_Update_Konyv.TabIndex = 23;
+            this.btn_Update_Konyv.Text = "Könyv Update";
+            this.btn_Update_Konyv.UseVisualStyleBackColor = true;
+            this.btn_Update_Konyv.Click += new System.EventHandler(this.btn_Update_Konyv_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RoyalBlue;
             this.ClientSize = new System.Drawing.Size(1159, 428);
+            this.Controls.Add(this.btn_Update_Konyv);
             this.Controls.Add(this.btn_Kiado_Update);
             this.Controls.Add(this.btn_Kiado_Torles);
             this.Controls.Add(this.btn_Kiado_Beszuras);
@@ -345,6 +359,7 @@
         private System.Windows.Forms.Button btn_Kiado_Torles;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button btn_Kiado_Update;
+        private System.Windows.Forms.Button btn_Update_Konyv;
     }
 }
 

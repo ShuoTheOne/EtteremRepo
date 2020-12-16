@@ -8,7 +8,7 @@ namespace konyvtar.Models.Records
 
         }
 
-        public Konyvek(int id, string raktari_szam, string kiado_id, string cim, Mufaj Mufaj, DateTime kiadas_eve)
+        public Konyvek(string id, string raktari_szam, string kiado_id, string cim, Mufaj Mufaj, DateTime kiadas_eve)
         {
             this.Id = id;
             this.Raktari_szam = raktari_szam;
@@ -18,9 +18,9 @@ namespace konyvtar.Models.Records
             this.Kiadas_eve = kiadas_eve;
         }
 
-        private int id;
+        private string id;
 
-        public int Id
+        public string Id
         {
             get
             {
@@ -28,7 +28,7 @@ namespace konyvtar.Models.Records
             }
             set
             {
-                if (value < 0)
+                if (value.Length == 0)
                 {
                     throw new ArgumentNullException("A könyvtári szám nem lehet nulla!");
                 }

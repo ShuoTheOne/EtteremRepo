@@ -29,7 +29,7 @@ namespace konyvtar.Models.Manager
             OracleCommand command = new OracleCommand()
             {
                 CommandType = System.Data.CommandType.Text,
-                CommandText = "SELECT books.id, books.raktari_szam, books.kiado_id, books.mufaj, books.cim, books.kiadas_eve FROM books"
+                CommandText = "SELECT * FROM books"
             };
 
             command.Connection = oc;
@@ -38,7 +38,7 @@ namespace konyvtar.Models.Manager
             while (reader.Read())
             {
                 Konyvek konyv = new Konyvek();
-                konyv.Id = int.Parse(reader["id"].ToString());
+                konyv.Id = reader["id"].ToString();
                 konyv.Raktari_szam = reader["raktari_szam"].ToString();
                 konyv.Cim = reader["cim"].ToString();
                 konyv.Mufaj = (Mufaj)reader["mufaj"];

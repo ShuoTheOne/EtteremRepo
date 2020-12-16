@@ -128,7 +128,7 @@ namespace konyvtar
             foreach (DataGridViewRow selectedRows in dgv_Konyvek.SelectedRows)
             {
                 Konyvek TorlendoRekord = new Konyvek();
-                TorlendoRekord.Id = int.Parse(selectedRows.Cells["id"].Value.ToString());
+                TorlendoRekord.Id = selectedRows.Cells["id"].Value.ToString();
 
                 ToroltSorok += konyvManager.Delete(TorlendoRekord);
             }
